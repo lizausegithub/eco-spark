@@ -3,9 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Eco Spark - Green Technology Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <style> 
+   * {
+        box-sizing: border-box;
+      }
+      
+      /* Style the search field */
+      form.example input[type=text] {
+        padding: 5px;
+        font-size: 17px;
+        border: 1px solid grey;
+        float: left;
+        width: 20%;
+        background: #f1f1f1;
+      }
+      
+      /* Style the submit button */
+      form.example button {
+        float: left;
+        width: 5%;
+        padding: 5px;
+        background: lightgreen;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none; /* Prevent double borders */
+        cursor: pointer;
+      }
+      
+      
+      
+      /* Clear floats */
+      form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+    </style>
 </head>
 <body>
-    <h1>Eco Spark</h1>
+    <div class="header">
+        <header style="text-align:center"><h2>Ecospark</h2></header>
+        <form class="example">
+            <input type="text" placeholder="What are you looking for?" name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+       
+    </div>
+    <footer>Your decisions shape the future</footer>
 </body>
 </html>
