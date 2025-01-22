@@ -1,35 +1,52 @@
-* {
-    box-sizing: border-box;
-  }
-  
-  /* Style the search field */
-  form.example input[type=text] {
-    padding: 5px;
-    font-size: 17px;
-    border: 1px solid grey;
-    float: left;
-    width: 20%;
-    background: lightgreen;
-  }
-  
-  /* Style the submit button */
-  form.example button {
-    float: left;
-    width: 5%;
-    padding: 5px;
-    background: lightgreen;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none; /* Prevent double borders */
-    cursor: pointer;
-  }
-  
-  
-  
-  /* Clear floats */
-  form.example::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 10px 20px;
+}
+header input[type="text"] {
+  padding: 5px;
+  font-size: 14px;
+}
+.banner {
+  text-align: center;
+  background-color: #e0f7fa;
+  padding: 30px 0;
+}
+.banner h1 {
+  margin: 0;
+}
+.slogan {
+  text-align: center;
+  padding: 20px;
+}
+.products {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: center;
+padding: 20px;
+}
+.product {
+border: 1px solid #ddd;
+border-radius: 5px;
+padding: 10px;
+text-align: center;
+width: 200px;
+}
+.product img {
+max-width: 100%;
+border-radius: 5px;
+}
+footer {
+background-color: #f4f4f4;
+text-align: center;
+padding: 20px;
+margin-top: 20px;
+}
