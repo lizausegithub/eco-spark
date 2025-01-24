@@ -1,74 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco Spark - Green Technology Store</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/style/product.home.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Technology Store</title>
+  <link rel="stylesheet" href="/style/product.home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ecospark</title>
-        
-    </head>
-<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo"><img src="/images/logo.jpg" alt=""></div>
 
-<header>
-    <div>
-        <h2>ECOSPARK</h2>
-        <p>Discover - Act - Change</p>
-    </div>
-    <input type="text" placeholder="What are you looking for?">
-    <nav>
-        <a href="#">Support</a>
-    </nav>
-</header>
-<div class="banner">
-    <h1>Welcome to Ecospark</h1>
-    <p>Your decisions shape the future</p>
-</div>
+    <div class="search-container">
+      <div class="dropdown">
+          <button class="dropdown-button">All Categories
+            <i class="fa-solid fa-caret-down"></i>
+          </button>
+          <div class="dropdown-menu">
+              <a href="#">Category 1</a>
+              <a href="#">Category 2</a>
+              <a href="#">Category 3</a>
+          </div>
+      </div>
+      <input type="text" class="search-input" placeholder="What are you looking for?">
+      <button class="search-button">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+  </div>
 
-<div class="slogan">
-    <h3>Solar Power Products</h3>
-    <p>5-year warranty</p>
-</div>
-
-<div class="products">
-    <div class="product">
-        <img src="https://via.placeholder.com/150" alt="Product 1">
-        <h4>Solar Panel</h4>
-        <p>Price: $199</p>
-        <button>Learn More</button>
-    </div>
-    <div class="product">
-        <img src="https://via.placeholder.com/150" alt="Product 2">
-        <h4>Smart Plug</h4>
-        <p>Price: $29</p>
-        <button>Learn More</button>
-    </div>
-    <div class="product">
-        <img src="https://via.placeholder.com/150" alt="Product 3">
-        <h4>Electric Bike</h4>
-        <p>Price: $999</p>
-        <button>Learn More</button>
-    </div>
-</div>
-
-<footer>
-    <p>Here to Help:</p>
-    <ul>
-        <li>Order Support</li>
-        <li>Customer Care</li>
-        <li>Service Center</li>
-        <li>Register Your Product</li>
-    </ul>
-    <p>Contact Us: 022-41258000 | +91 7039972000</p>
-</footer>
+  </header>
   
+  <nav class="navbar">
+    <ul class="nav-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">New Arrival</a></li>
+        <li><a href="#">Sale</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Blogs</a></li>
+        <li><a href="#">Pages</a></li>
+    </ul>
+    <a href="#" class="buy-now-btn">Buy Now</a>
+</nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="/images/bannerphoto.jpeg" alt="img">
+    <div class="hero-buttons">
+      <a href="#" class="btn-primary">Shop Now</a>
+      <a href="#" class="btn-secondary">Learn More</a>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="products">
+    <h2>Best-Selling Eco-Friendly Solutions</h2>
+    <div class="product-list">
+      <div class="product">
+        <img src="solar-panel.jpg" alt="Solar Panel">
+        <h3>Solar Panel</h3>
+        <p>High-efficiency solar panels for clean energy.</p>
+      </div>
+      <div class="product">
+        <img src="smart-thermostat.jpg" alt="Smart Thermostat">
+        <h3>Smart Thermostat</h3>
+        <p>Save energy with smart temperature control.</p>
+      </div>
+      <div class="product">
+        <img src="composter.jpg" alt="Composter">
+        <h3>Composter</h3>
+        <p>Turn waste into compost effortlessly.</p>
+      </div>
+      <div class="product">
+        <img src="water-saver.jpg" alt="Water Saver">
+        <h3>Water Saver</h3>
+        <p>Conserve water with advanced tools.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscription Section -->
+  <section class="subscribe">
+    <h2>Join the Green Movement</h2>
+    <p>Subscribe to receive exclusive offers and green living tips.</p>
+    <form class="subscribe-form">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit" class="btn-primary">Subscribe Now</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">FAQs</a>
+    </div>
+    <div class="footer-contact">
+      <p>Contact Us: support@greentech.com</p>
+      <p>Phone: +123-456-7890</p>
+    </div>
+    <div class="social-icons">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
