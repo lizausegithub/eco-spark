@@ -352,7 +352,7 @@ header {
 }
 
 /* For Good-products */
-.Good-products h2 {
+/* .Good-products h2 {
   text-align: center;
 }
 
@@ -393,7 +393,7 @@ header {
   padding-left: 15px;
   padding-right: 15px;
 
-}
+} */
 
 .product-info {
   font-size: 0.9rem;
@@ -827,9 +827,10 @@ footer {
   margin: 20px 0;
 }
 
-.col ul{
+.col ul {
   padding-left: 0;
 }
+
 ul li {
   list-style: none;
   margin-bottom: 10px;
