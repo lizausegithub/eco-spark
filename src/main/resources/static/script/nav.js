@@ -1,9 +1,11 @@
-// window.addEventListener('scroll', function () {
-//     const nav = this.document.querySelector('nav');
+window.addEventListener('scroll', function () {
+    var navbar = this.document.querySelector(".navbar");
+    var navbarOffset = navbar.offsetTop;
 
-//     if (window.scrollY >= nav.offsetTop) {
-//         nav.classList.add('sticky');
-//     } else {
-//         nav.classList.remove('sticky');
-//     }
-// })
+    if (this.window.scrollY >= navbarOffset) {
+        navbar.classList.add("sticky-nav");
+    }
+    if (window.scrollY <= navbarOffset) {
+        navbar.classList.remove("sticky-nav");
+    }
+});
