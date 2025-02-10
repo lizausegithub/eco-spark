@@ -1,20 +1,21 @@
 package edu.rims.eco_spark.entity;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "user")
 @Setter
 @Getter
-public class User {
+public class User extends Auditable {
 
     @Id
-    @Column(name = "user_id", nullable = false, length = 255)
-    private String userId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id", nullable = false)
+    private Integer userId;
 
     @Column(name = "user_name", nullable = false, length = 255)
     private String userName;
@@ -31,15 +32,15 @@ public class User {
     @Column(name = "user_phone", length = 20)
     private String userPhone;
 
-    @Column(name = "created_date", updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime createdDate;
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
 
-    @Column(name = "updated_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
-    private LocalDateTime updatedDate;
+    @OneToMany(mappedBy = "user")
+    private List<Wishlist> wishlists;
 
-    @Column(name = "created_by", length = 255)
-    private String createdBy;
+    @OneToMany(mappedBy = "user")
+    private List<Payment> payments;
 
-    @Column(name = "updated_by", length = 255)
-    private String updatedBy;
+    @OneToMany(mappedBy = "user")
+    private List<Review> reviews;
 }

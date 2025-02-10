@@ -21,10 +21,10 @@ public class Category extends Auditable {
     @Column(name = "category_description", columnDefinition = "TEXT")
     private String categoryDescription;
 
-    @Column(name = "category_image_url")
+    @Column(name = "category_image_url", columnDefinition = "TEXT")
     private String categoryImageUrl;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "category_status", columnDefinition = "ENUM('ACTIVE', 'INACTIVE') DEFAULT 'ACTIVE'")
+    @Column(name = "category_status")
     private CategoryStatus categoryStatus = CategoryStatus.ACTIVE;
 }
