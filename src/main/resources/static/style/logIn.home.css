@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Afacad Flux", sans-serif;
+    transition: 0.5s;
+    outline: none;
+}
+
+body,
+html {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+:root {
+    --primary: #3a5a40;
+    --secondary: #344e41;
+    --neutral: #588157;
+    --accent: #a3b181;
+    --funnel: "Funnel Sans", sans-serif;
+}
+
+.wrapper {
+    height: 100%;
+    display: flex;
+}
+
+/* left section */
+.left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.left h1 {
+    color: var(--neutral);
+    font-weight: 400;
+    font-size: 7vw;
+}
+
+.left input {
+    width: 60%;
+    height: 50px;
+    text-indent: 25px;
+    border: none;
+    border-bottom: 1px solid #efefef;
+    color: var(--secondary);
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.left input:focus {
+    border-bottom: 1px solidvar(--accent);
+}
+
+.left input::placeholder {
+    color: var(--neutral);
+    font-weight: bold;
+}
+
+.left .rm-fg {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+}
+
+.rm-fg .password {
+    color: var(--accent);
+    cursor: pointer;
+}
+
+.rm-fg .password:hover {
+    color: var(--secondary);
+}
+
+.rm-fg .rm {
+    display: flex;
+    width: 128px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.rm input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.rm p {
+    color: var(--neutral);
+    font-weight: 400;
+}
+
+.left button {
+    width: 150px;
+    height: 40px;
+    border-radius: 2px;
+    cursor: pointer;
+    background-color: var(--neutral);
+    font-size: 16px;
+    color: #fff;
+}
+
+.left button:hover {
+    background-color: var(--secondary);
+}
+
+.left button:active {
+    background-color: transparent;
+}
+
+/* Right Section */
+.right {
+    width: 50%;
+    background-image: linear-gradient(to right, var(--secondary), #24362d);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+    border-radius: 100px 0 0 100px;
+}
+
+.right h2 {
+    color: var(--neutral);
+    font-family: var(--funnel);
+    font-size: 3.2vw;
+}
+
+.right button {
+    border: 1px solid var(--accent);
+    width: 30vw;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: var(--funnel);
+    color: var(--accent);
+}
+
+.right button:hover {
+    background-color: transparent;
+    border: 1px solid var(--primary);
+    color: #fff;
+}
+
+.right p {
+    font-family: var(--funnel);
+    color: #efefef;
+    font-size: 1.3vw;
+}
+
+.right .icons {
+    gap: 10px;
+    width: 150px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.icons i {
+    cursor: pointer;
+    font-size: 25px;
+    color: #fff;
+}
+
+.right .circle {
+    width: 30vw;
+    height: 30vw;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -80px;
+    right: -80px;
+    z-index: -1;
+    background-image: linear-gradient(to bottom, var(--primary), var(--neutral));
+}
+
+/* Responsive Styling */
+@media screen and (max-width:1141px) {
+    .left {
+        width: 60%;
+    }
+
+    .right {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width:933px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left {
+        width: 100%;
+        height: 60%;
+    }
+
+    .right {
+        width: 100%;
+        height: 40%;
+    }
+
+    .right p {
+        font-size: 1.8vw;
+    }
+}
+
+@media screen and (max-width:588px) {
+    .right {
+        height: 20%;
+    }
+
+    .right .circle {
+        display: none;
+    }
+
+    .right p {
+        display: none;
+    }
+
+    .right .icons {
+        display: none;
+    }
+
+    .left {
+        height: 80%;
+        background-color: #fff;
+    }
+
+    .left h1 {
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width:499px) {
+    .left .rm-fg {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+}

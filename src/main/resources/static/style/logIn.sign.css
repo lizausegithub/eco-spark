@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Afacad Flux", sans-serif;
+    /* transition: 0.5s;
+    outline: none; */
+}
+
+body {
+    background-color: white;
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+.signup-box {
+    width: 360px;
+    height: 620px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 15px;
+    color: #588157;
+}
+
+h4 {
+    text-align: center;
+}
+
+form {
+    width: 300px;
+    margin-left: 20px;
+}
+
+form label {
+    display: flex;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+form input {
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border: 1px solid gray;
+    border-radius: 6px;
+    outline: none;
+}
+
+input[type="button"] {
+    width: 320px;
+    height: 35px;
+    margin-top: 20px;
+    border: none;
+    background-color: #588157;
+    color: white;
+    font-size: 18px;
+}
+
+p {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 15px;
+}
+
+.para-2 {
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    margin-top: -10px;
+}
+
+.para-2 a {
+    color: #a3b181;
+}
+
+/* .circle {
+    width: 30vw;
+    height: 30vw;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 80px;
+    right: 80px;
+    z-index: -1;
+    background-image: linear-gradient(to bottom, #3a5a40, #588157);
+} */
