@@ -8,7 +8,7 @@ import lombok.Setter;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "order")
+@Table(name = "product_order")
 @Setter
 @Getter
 public class Order extends Auditable {
