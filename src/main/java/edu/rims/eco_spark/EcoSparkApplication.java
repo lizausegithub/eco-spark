@@ -10,4 +10,4 @@ public class EcoSparkApplication {
 		SpringApplication.run(EcoSparkApplication.class, args);
 	}
 
-}
+} 
