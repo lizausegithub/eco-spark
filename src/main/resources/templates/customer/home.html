@@ -21,9 +21,10 @@
           <i class="fa-solid fa-caret-down"></i>
         </button>
         <div class="dropdown-menu">
-          <a href="#">Category 1 <i class="fa-solid fa-greater-than"></i></a>
-          <a href="#">Category 2 <i class="fa-solid fa-greater-than"></i></a>
-          <a href="#">Category 3 <i class="fa-solid fa-greater-than"></i></a>
+          <a href="#" data-th-each="category : ${categories}"><span data-th-text="${category.categoryTitle}"></span> <i
+              class="fa-solid fa-greater-than"></i></a>
+          <!-- <a href="#">Category 2 <i class="fa-solid fa-greater-than"></i></a>
+          <a href="#">Category 3 <i class="fa-solid fa-greater-than"></i></a> -->
         </div>
       </div>
       <input type="text" class="search-input" placeholder="What are you looking for?">

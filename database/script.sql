@@ -44,11 +44,11 @@ CREATE TABLE user (
     updated_by VARCHAR(255)
 );
 
-CREATE TABLE order (
-    order_id VARCHAR(255) PRIMARY KEY,
+CREATE TABLE product_order (
+    product_order_id VARCHAR(255) PRIMARY KEY,
     user_id INT NOT NULL,
-    order_total_price DOUBLE NOT NULL,
-    order_status ENUM('PENDING', 'PROCESSING', 'SHIPPED', 'DELIVERED' ,'CANCELLED','CART') DEFAULT 'PENDING',
+    product_order_total_price DOUBLE NOT NULL,
+    product_order_status ENUM('PENDING', 'PROCESSING', 'SHIPPED', 'DELIVERED' ,'CANCELLED','CART') DEFAULT 'PENDING',
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     created_by VARCHAR(255), 
@@ -58,8 +58,8 @@ CREATE TABLE order (
 
 CREATE TABLE order_item (
     order_item_id VARCHAR(255) PRIMARY KEY,
-    order_id INT NOT NULL,
-    product_id INT NOT NULL, 
+    order_id VARCHAR(255) NOT NULL,
+    product_id VARCHAR(255) NOT NULL, 
     order_item_quantity INT NOT NULL,
     order_item_price DOUBLE NOT NULL,
     order_item_status ENUM('REMOVED', 'ADDED') DEFAULT 'ADDED',
@@ -74,7 +74,7 @@ CREATE TABLE order_item (
 CREATE TABLE wishlist (
     wishlist_id VARCHAR(255) PRIMARY KEY,
     user_id INT NOT NULL,
-    product_id INT NOT NULL,
+    product_id VARCHAR(255) NOT NULL,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     created_by VARCHAR(255), 
@@ -86,8 +86,8 @@ CREATE TABLE wishlist (
 CREATE TABLE payment (
     payment_id VARCHAR(255) PRIMARY KEY,
     user_id INT NOT NULL,
-    order_id INT NOT NULL,
-    payment_amount DECIMAL(10,2) NOT NULL,
+    order_id VARCHAR(255) NOT NULL,
+    payment_amount DOUBLE NOT NULL,
     payment_method ENUM('CREDIT_CARD', 'DEBIT_CARD', 'PAYPAL', 'NET_BANKING', 'COD') NOT NULL,
     payment_status ENUM('PENDING', 'COMPLETED', 'FAILED') DEFAULT 'PENDING',
     payment_transaction_id VARCHAR(255) UNIQUE NOT NULL,
@@ -100,9 +100,9 @@ CREATE TABLE payment (
 );
 
 CREATE TABLE review (
-    id INT VARCHAR(255) PRIMARY KEY,
+    review_id VARCHAR(255) PRIMARY KEY,
     user_id INT NOT NULL,
-    product_id INT NOT NULL,
+    product_id VARCHAR(255) NOT NULL,
     review_rating INT CHECK (rating BETWEEN 1 AND 5),
     review_description TEXT,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

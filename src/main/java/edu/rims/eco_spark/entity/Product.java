@@ -1,17 +1,16 @@
 package edu.rims.eco_spark.entity;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "product")
 @Setter
 @Getter
-public class Product {
+public class Product extends Auditable {
 
     @Id
     @Column(name = "product_id", nullable = false, length = 255)
@@ -27,24 +26,21 @@ public class Product {
     @Column(name = "product_description", columnDefinition = "TEXT")
     private String productDescription;
 
-    @Column(name = "product_image_url")
+    @Column(name = "product_image_url", columnDefinition = "TEXT")
     private String productImageUrl;
 
-    @Column(name = "product_price", nullable = false, precision = 10, scale = 2)
-    private BigDecimal productPrice;
+    @Column(name = "product_price", nullable = false)
+    private Double productPrice;
 
     @Column(name = "product_stock", nullable = false, columnDefinition = "INT DEFAULT 0")
     private Integer productStock = 0;
 
-    @Column(name = "created_date", updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime createdDate;
+    @OneToMany(mappedBy = "product")
+    private List<OrderItem> orders;
 
-    @Column(name = "updated_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
-    private LocalDateTime updatedDate;
+    @OneToMany(mappedBy = "product")
+    private List<Wishlist> wishlists;
 
-    @Column(name = "created_by", length = 255)
-    private String createdBy;
-
-    @Column(name = "updated_by", length = 255)
-    private String updatedBy;
+    @OneToMany(mappedBy = "product")
+    private List<Review> reviews;
 }
