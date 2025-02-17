@@ -17,7 +17,7 @@ public class Product extends Auditable {
     private String productId;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", referencedColumnName = "category_id", nullable = true)
+    @JoinColumn(name = "category_id", nullable = true)
     private Category category;
 
     @Column(name = "product_title", nullable = false, length = 50)

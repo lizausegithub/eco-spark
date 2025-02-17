@@ -1,5 +1,7 @@
 package edu.rims.eco_spark.entity;
 
+import java.util.List;
+
 import edu.rims.eco_spark.constant.CategoryStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -28,4 +30,7 @@ public class Category extends Auditable {
     @Enumerated(EnumType.STRING)
     @Column(name = "category_status")
     private CategoryStatus categoryStatus = CategoryStatus.ACTIVE;
+
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 }

@@ -4,14 +4,14 @@
 <head data-th-replace="~{fragment/common::head}"></head>
 
 <body>
-  <header data-th-replace="~{fragment/common::header}"></header>
+  <header data-th-replace="~{fragment/common :: header}"></header>
 
   <!-- Hero Section -->
   <section class="hero">
     <div class="nav">
       <nav class="navbar">
         <ul class="nav-menu">
-          <li><a href="#">Home</a></li>
+          <li><a href="/customer/home">Home</a></li>
           <li><a href="#">Shop</a></li>
           <li><a href="#">New Arrival</a></li>
           <li><a href="#">Sale</a></li>
@@ -63,11 +63,11 @@
       <label for="price-filter">Max-price:</label>
       <input type="number" id="price-filter" value="1000">
     </aside>
-    <div class="product_section">
-      <h2>Matching items</h2>
+    <div class="product_section" data-th-each="category : ${categories}">
+      <h2 data-th-text="|Matching items for ${category.categoryTitle}|"></h2>
 
       <div class="product-container">
-        <article class="product">
+        <article class="product" data-th-each="item : ${category.products}">
           <div class="img-container">
             <img src="/images/chargers1.jpeg" alt="img">
           </div>
