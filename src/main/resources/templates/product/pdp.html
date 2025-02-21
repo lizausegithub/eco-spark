@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecospark-Green technology store</title>
+    <link rel="stylesheet" href="/style/product.pdp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header data-th-replace="~{fragment/common::header}"></header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="nav">
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">New Arrival</a></li>
+                    <li><a href="#">Sale</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">Pages</a></li>
+                </ul>
+                <a href="#" class="buy-now-btn">Buy Now</a>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumbs">
+        <div class="breadcrumb">
+            <a href="#">Home</a> > <a href="#">Solar Chargers</a> > Solar Charger 10,000mAh
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="product-container">
+        <div class="product-images">
+            <div class="image-thumbnails">
+                <img src="/images/chargers2.jpeg" onclick="changeImage(this)">
+                <img src="/images/chargers3.jpeg" onclick="changeImage(this)">
+                <img src="/images/chargers4.jpeg" onclick="changeImage(this)">
+            </div>
+            <div class="mainimages">
+                <img id="mainImage" src="/images/chargers1.jpeg" alt="Solar Charger">
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h2>Solar-Powered Charger – 10,000mAh</h2>
+            <p class="price"><del>&#8377;49.99</del> <span>&#8377;39.99</span></p>
+            <p>⭐⭐⭐⭐⭐ (120 Reviews)</p>
+            <p><strong>Availability:</strong> ✅ In Stock</p>
+
+            <p>Stay powered anywhere with the sun! Our high-efficiency solar-powered charger is designed for outdoor
+                enthusiasts, travelers, and eco-conscious users. Featuring fast-charging technology, multiple USB ports,
+                and a durable, it ensures reliable energy for your devices anytime, anywhere. Perfect
+                for camping, hiking, and emergency use.</p>
+            <ul class="features">
+                <li>🔋 100% Solar-Powered</li>
+                <li>⚡ 10,000mAh Battery – Charges Phone 3X</li>
+                <li>🌞 Dual USB Fast Charging</li>
+                <li>💦 Waterproof & Durable</li>
+            </ul>
+
+            <label>Quantity:</label>
+            <input type="number" id="quantity" min="1" value="1">
+
+            <div class="cta-buttons">
+                <button class="btn cart-btn">🛒 Add to Cart</button>
+                <button class="btn buy-btn">✅ Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <h3>People Also Bought:</h3>
+        <div class="product-grid">
+            <div class="product">
+                <img src="/images/solarbattery1.jpg" alt="Solar Flashlight">
+                <div>
+                    <p>Solar Flashlight - $19.99</p>
+                </div>
+            </div>
+            <div class="product">
+                <img src="/images/solarbattery1.jpg" alt="LED Bulbs">
+                <div>
+                    <p>Solar Flashlight - $19.99</p>
+                </div>
+            </div>
+            <div class="product">
+                <img src="/images/solarbattery1.jpg" alt="LED Bulbs">
+                <div>
+                    <p>Solar Flashlight - $19.99</p>
+                </div>
+            </div>
+            <div class="product">
+                <img src="/images/solarbattery1.jpg" alt="LED Bulbs">
+                <div>
+                    <p>Solar Flashlight - $19.99</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <div class="reviews">
+        <h3>Customer Reviews</h3>
+
+        <!-- Single Review -->
+        <div class="review-item">
+            <div class="review-header">
+                <span class="review-user">John Doe</span>
+                <span class="review-date">February 18, 2025</span>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">This solar-powered charger is amazing! Charges quickly and works perfectly in outdoor
+                conditions.</p>
+        </div>
+
+        <!-- Single Review -->
+        <div class="review-item">
+            <div class="review-header">
+                <span class="review-user">Sarah Williams</span>
+                <span class="review-date">February 17, 2025</span>
+            </div>
+            <div class="review-stars">★★★★☆</div>
+            <p class="review-text">Great product, but I wish it had a little more battery capacity for longer trips.</p>
+        </div>
+
+        <!-- Review Submission Form -->
+        <div class="review-form">
+            <h4>Leave a Review</h4>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <textarea id="review-text" placeholder="Write your review..." required></textarea>
+            <select id="rating">
+                <option value="5">★★★★★ (5 Stars)</option>
+                <option value="4">★★★★☆ (4 Stars)</option>
+                <option value="3">★★★☆☆ (3 Stars)</option>
+                <option value="2">★★☆☆☆ (2 Stars)</option>
+                <option value="1">★☆☆☆☆ (1 Star)</option>
+            </select>
+            <button onclick="submitReview()">Submit Review</button>
+        </div>
+
+    </div>
+
+    <footer data-th-replace="~{fragment/common :: footer}"></footer>
+    <link rel="stylesheet" href="/fragment.home.css">
+    <script src="/script/nav.js"></script>
+    <script src="/script/pdp.js"></script>
+
+</body>
+
+</html>

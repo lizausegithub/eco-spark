@@ -5,7 +5,7 @@ import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Setter
 @Getter
@@ -13,10 +13,10 @@ import java.sql.Timestamp;
 public abstract class Auditable {
 
     @Column(name = "created_date", nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp createdDate;
+    private LocalDateTime createdDate;
 
     @Column(name = "updated_date", nullable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
-    private Timestamp updatedDate;
+    private LocalDateTime updatedDate;
 
     @Column(name = "created_by", length = 255)
     private String createdBy;

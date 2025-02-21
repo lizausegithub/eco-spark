@@ -17,29 +17,48 @@
     <div class="wrapper">
         <div class="left">
             <h1>Sign Up</h1>
-            <form>
-                <label>First Name</label>
-                <input type="text" placeholder="Your First Name">
-                <label>Last Name</label>
-                <input type="text" placeholder="Your Last Name">
-                <label>Email</label>
-                <input type="email" placeholder="Email">
-                <label>Password</label>
-                <input type="password" placeholder="Password">
-                <label>Confirm Password</label>
-                <input type="password" placeholder="Confirm Password">
-
-                <a href="#"><button type="submit">Submit</button></a>
+            <form method="post" action="/logIn/sign">
+                <div class="inner-form">
+                    <div>
+                        <div>
+                            <input type="text" placeholder="UserName" name="userName">
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Phone Number" name="userPhone">
+                        </div>
+                        <div>
+                            <input type="password" placeholder="Password" name="userPassword">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <input type="email" placeholder="Email" name="userEmail">
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Address" name="userAddress">
+                        </div>
+                        <div>
+                            <input type="password" placeholder="Confirm Password" name="cp">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" required> By clicking the Sign Up button, you agree to our
+                        <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>.
+                    </label>
+                </div>
+                <div>
+                    <input type="submit" value="Submit">
+                </div>
             </form>
 
-            <P>By clicking the Sign Up button, you agree to our <br>
-                <a href="#">Terms and Condition</a> and <a href="#">Policy Privacy</a>
-            </P>
+
 
         </div>
         <div class="right">
             <p>Already have an account? </p>
-            <button><a href="#">Login</a></button>
+            <button><a href="/logIn/home">Login</a></button>
             <p>Or signup with Google</p>
             <div class="icons">
                 <a href="https://accounts.google.co.in/"><i class="fa-brands fa-google"></i></a>

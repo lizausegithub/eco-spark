@@ -9,5 +9,4 @@ public class EcoSparkApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EcoSparkApplication.class, args);
 	}
-
-} 
+}
