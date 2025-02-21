@@ -4,50 +4,19 @@
 <head data-th-replace="~{fragment/common::head}"></head>
 
 <body>
+  <link rel="stylesheet" href="/style/product.home.css">
+
   <header data-th-replace="~{fragment/common :: header}"></header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="nav">
-      <nav class="navbar">
-        <ul class="nav-menu">
-          <li><a href="/customer/home">Home</a></li>
-          <li><a href="#">Shop</a></li>
-          <li><a href="#">New Arrival</a></li>
-          <li><a href="#">Sale</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Blogs</a></li>
-          <li><a href="#">Pages</a></li>
-        </ul>
-        <a href="#" class="buy-now-btn">Buy Now</a>
-      </nav>
-    </div>
+    <div data-th-replace="~{fragment/common :: customerNav}"></div>
     <div class="container">
       <div class="heading">BUILT FOR <br> EXCEPTIONAL <br> TOUGHNESS</div>
       <div class="warranty">2 YEARS WARRANTY#</div>
       <div class="sub-heading">Energy Efficient Chargers</div>
     </div>
   </section>
-
-  <!-- products section statrts -->
-  <!-- <section class="latest_products" id="products">
-    <h1 class="heading2">Latest <span>products</span></h1>
-    <div class="box-container">
-      <div class="box">
-        <span class="discount">-15%</span>
-        <div class="image">
-          <img src="/images/chargers3.jpeg" alt="image">
-          <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="cart-btn"> add to cart</a>
-            <a href="#" class="fas fa-share"></a>
-          </div>
-        </div>
-        <div class="content">
-          <h3>chargers</h3>
-          <div class="price"> $12.99 <span>$15.99</span></div>
-        </div>
-      </div> -->
 
   <main>
     <aside class="filter-section">
@@ -63,7 +32,7 @@
       <label for="price-filter">Max-price:</label>
       <input type="number" id="price-filter" value="1000">
     </aside>
-    <div class="product_section" data-th-each="category : ${categories}">
+    <div class="product_section">
       <h2 data-th-text="|Matching items for ${category.categoryTitle}|"></h2>
 
       <div class="product-container">
@@ -72,67 +41,7 @@
             <img src="/images/chargers1.jpeg" alt="img">
           </div>
           <div class="product-title">
-            <h4>Chargers</h4>
-          </div>
-          <div class="product-action">
-            <a href="#">Add to cart</a>
-          </div>
-        </article>
-
-        <article class="product">
-          <div class="img-container">
-            <img src="/images/chargers1.jpeg" alt="img">
-          </div>
-          <div class="product-title">
-            <h4>Chargers</h4>
-          </div>
-          <div class="product-action">
-            <a href="#">Add to cart</a>
-          </div>
-        </article>
-
-        <article class="product">
-          <div class="img-container">
-            <img src="/images/chargers1.jpeg" alt="img">
-          </div>
-          <div class="product-title">
-            <h4>Chargers</h4>
-          </div>
-          <div class="product-action">
-            <a href="#">Add to cart</a>
-          </div>
-        </article>
-
-        <article class="product">
-          <div class="img-container">
-            <img src="/images/chargers1.jpeg" alt="img">
-          </div>
-          <div class="product-title">
-            <h4>Chargers</h4>
-          </div>
-          <div class="product-action">
-            <a href="#">Add to cart</a>
-          </div>
-        </article>
-
-        <article class="product">
-          <div class="img-container">
-            <img src="/images/chargers1.jpeg" alt="img">
-          </div>
-          <div class="product-title">
-            <h4>Chargers</h4>
-          </div>
-          <div class="product-action">
-            <a href="#">Add to cart</a>
-          </div>
-        </article>
-
-        <article class="product">
-          <div class="img-container">
-            <img src="/images/chargers1.jpeg" alt="img">
-          </div>
-          <div class="product-title">
-            <h4>Chargers</h4>
+            <h4 data-th-text="${item.productTitle}"></h4>
           </div>
           <div class="product-action">
             <a href="#">Add to cart</a>
@@ -146,8 +55,6 @@
   </section>
 
   <footer data-th-replace="~{fragment/common :: footer}"></footer>
-  <link rel="stylesheet" href="/fragment.home.css">
-  <script src="/script/nav.js"></script>
 
 </body>
 
