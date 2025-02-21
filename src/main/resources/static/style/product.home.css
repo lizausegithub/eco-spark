@@ -53,6 +53,8 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  width: 250px;
+  height: 200px;
 }
 
 .product-container .article .img-container img{

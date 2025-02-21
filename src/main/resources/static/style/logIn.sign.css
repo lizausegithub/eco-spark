@@ -8,18 +8,6 @@
     outline: none;
 }
 
-body,
-html {
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-}
-
-form {
-    width: 290px;
-    margin-left: 20px;
-}
-
 :root {
     --primary: #3a5a40;
     --secondary: #344e41;
@@ -29,35 +17,75 @@ form {
 }
 
 .wrapper {
-    height: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
 }
 
-/* left section */
 .left {
-    width: 50%;
-    height: fit-content;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+    gap: 0.8rem;
+    margin: auto;
+}
+
+form .inner-form {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 2rem;
+}
+
+form .inner-form>div {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.left p {
+    font-size: 1rem;
+    text-align: center;
 }
 
 .left h1 {
     color: var(--neutral);
     font-weight: 400;
     font-size: 3vw;
+    text-align: center;
     text-indent: 25px;
 }
 
-.wrapper input {
+.left form {
+    display: grid;
+    gap: 1rem;
+}
+
+.left form>div {
+    /* border: 1px solid red; */
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.left form input[type="submit"] {
+    padding: 0.3rem 2rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    border: 1px solid #8bb38d;
+    background-color: #588157;
+    color: white;
+}
+
+.wrapper input[type="text"],
+input[type="email"],
+input[type="password"] {
     width: 20rem;
-    height: 25px;
-    font-size: 16px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 15px;
+    font-size: 1rem;
+    padding: 0.6rem;
+    /* border: 1px solid #ccc; */
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 5px 5px 5px #4e7461;
 }
 
 .wrapper:focus {
@@ -104,7 +132,9 @@ button:hover {
 
 /* Right Section */
 .right {
-    width: 50%;
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
     background-image: linear-gradient(to right, var(--secondary), #24362d);
     display: flex;
     flex-direction: column;
@@ -124,7 +154,7 @@ button:hover {
 
 .right button {
     border: 1px solid var(--accent);
-    width: 30vw;
+    width: 15vw;
     height: 40px;
     border-radius: 6px;
     cursor: pointer;
@@ -134,8 +164,8 @@ button:hover {
 }
 
 .right button:hover {
-    background-color: transparent;
-    border: 1px solid var(--primary);
+    background-color: #7285456b;
+    border: 1px solid #a0aa88;
     color: #fff;
 }
 

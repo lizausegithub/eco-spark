@@ -108,6 +108,11 @@ html {
     color: #fff;
 }
 
+.left button a {
+    text-decoration: none;
+    color: white;
+}
+
 .left button:hover {
     background-color: var(--secondary);
 }

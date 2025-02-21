@@ -26,4 +26,9 @@ public class ProductController {
         return "product/home";
     }
 
+    @GetMapping("/pdp")
+    String pdp() {
+        return "product/pdp";
+    }
+
 }
