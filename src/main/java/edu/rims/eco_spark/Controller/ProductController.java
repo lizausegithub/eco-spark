@@ -21,7 +21,8 @@ public class ProductController {
     @GetMapping("/category/home")
     String getProductByCategoryId(@RequestParam("category") String categoryId, Model model) {
         Category category = categoryRepository.findById(categoryId).orElseThrow();
-        model.addAttribute("categories", category);
+        model.addAttribute("category", category);
+        model.addAttribute("categories", categoryRepository.findAll());
         return "product/home";
     }
 

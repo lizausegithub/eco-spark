@@ -5,10 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ecospark-Green technology store</title>
-    <link rel="stylesheet" href="/style/product.home.css">
+    <link rel="stylesheet" href="/style/base.css">
+    <link rel="stylesheet" href="/style/customer.header.css">
+    <link rel="stylesheet" href="/style/customer.nav.css">
+    <link rel="stylesheet" href="/style/customer.footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="/script/nav.js" defer></script>
 </head>
 
 <body>
@@ -20,11 +24,10 @@
                     <i class="fa-solid fa-caret-down"></i>
                 </button>
                 <div class="dropdown-menu">
-                    <a href="#" data-th-each="category : ${categories}"><span
-                            data-th-text="${category.categoryTitle}"></span> <i
+                    <a data-th-href="|/product/category/home?category=${category.categoryId}|"
+                        data-th-each="category : ${categories}">
+                        <span data-th-text="${category.categoryTitle}"></span> <i
                             class="fa-solid fa-greater-than"></i></a>
-                    <!-- <a href="#">Category 2 <i class="fa-solid fa-greater-than"></i></a>
-              <a href="#">Category 3 <i class="fa-solid fa-greater-than"></i></a> -->
                 </div>
             </div>
             <input type="text" class="search-input" placeholder="What are you looking for?">
@@ -38,6 +41,22 @@
             <i class="fa-solid fa-cart-flatbed" title="Cart"></i>
         </div>
     </header>
+
+    <div class="nav" data-th-fragment="customerNav">
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li><a href="/customer/home">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">New Arrival</a></li>
+                <li><a href="#">Sale</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Pages</a></li>
+            </ul>
+            <a href="#" class="buy-now-btn">Buy Now</a>
+        </nav>
+    </div>
+
     <footer>
         <div class="row">
             <div class="col">
