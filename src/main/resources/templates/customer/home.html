@@ -1,238 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head data-th-replace="~{fragment/common :: head }"></head>
 
-<head data-th-replace="~{fragment/common :: head }"></head>
+  <body>
+    <link rel="stylesheet" href="/style/customer.home.css" />
+    <script src="/script/slider.js" defer></script>
 
-<body>
-  <link rel="stylesheet" href="/style/customer.home.css">
+    <!-- Header Section -->
+    <header data-th-replace="~{fragment/common :: header}"></header>
 
-  <!-- Header Section -->
-  <header data-th-replace="~{fragment/common :: header}"></header>
-
-  <!-- Hero Section -->
-  <section class="hero">
     <div data-th-replace="~{fragment/common :: customerNav}"></div>
-    <div class="slider">
-      <!-- <p>Innovations for a Cleaner World!</p> -->
-      <figure>
-        <div class="slide">
-          <h4>Innovations for a Cleaner World!</h4>
-          <img src="/images/banner2.jpg" alt="slider1">
-        </div>
-      </figure>
-    </div>
-    <div class="hero-buttons">
-      <a href="#" class="btn-primary">Shop Collection</a>
-      <a href="#" class="btn-secondary">Add to cart</a>
-    </div>
-  </section>
 
-  <!-- features section -->
-  <section>
-    <div class="features">
-      <div class="feature">
-        <i class="fa-solid fa-truck-fast"></i>
-        <h3>Free Shipping</h3>
-        <p>Fresh Shipping on All our Orders</p>
-      </div>
-      <div class="feature">
-        <i class="fa fa-headset"></i>
-        <h3>Support 24/7</h3>
-        <p>Contact us 24 hours a day</p>
-      </div>
-      <div class="feature">
-        <i class="fa fa-undo"></i>
-        <h3>100% Money Back</h3>
-        <p>You have 30 days to return</p>
-      </div>
-      <div class="feature">
-        <i class="fa fa-lock"></i>
-        <h3>Payment Secure</h3>
-        <p>We ensure secure payment</p>
-      </div>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="slider-container">
+        <button id="slider-prevBtn">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button id="slider-nextBtn">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <div class="slider">
+          <figure>
+            <img
+              src="/images/banner1.jpeg"
+              alt="A clean world concept banner"
+            />
+            <figcaption>Innovations for a Cleaner World!</figcaption>
+          </figure>
 
-  </section>
+          <figure>
+            <img src="/images/banner2.jpg" alt="A clean world concept banner" />
+            <figcaption>Sustainable Solutions for a Greener Future!</figcaption>
+          </figure>
 
-  <!-- Featured Products -->
-  <section class="products">
-    <h2>Best-Selling Eco-Friendly Products</h2>
-    <div class="product-list">
-      <div class="product">
-        <img src="/images/chargers1.jpeg" alt="Solar Panel" height="250px">
-        <h3>Solar powered products</h3>
-        <button>Shop Now</button>
-        <!-- <p>High-efficiency solar products for clean energy.</p> -->
-      </div>
-      <div class="product">
-        <img src="/images/powerbank1.jpeg" alt="Smart Thermostat" height="250px">
-        <h3>Powerbanks</h3>
-        <button>Shop Now</button>
-        <!-- <p>Save energy</p> -->
-      </div>
-      <div class="product">
-        <img src="/images/chargers2.jpeg" alt="Composter">
-        <h3>Chargers</h3>
-        <button>Shop Now</button>
-        <!-- <p>Energize the future</p> -->
-      </div>
-      <div class="product">
-        <img src="/images/smartplugs1.jpeg" alt="Water Saver">
-        <h3>Smartplugs</h3>
-        <button>Shop Now</button>
-        <!-- <p>Works smartly</p> -->
-      </div>
-    </div>
-  </section>
-
-  <div class="banner">
-    <div class="content">
-      <h1>Get The 30% Off On <span>Electric Scooty</span></h1>
-      <p>Protecting the environment by buying Electric scooty.</p>
-      <button>View All Products</button>
-    </div>
-    <div class="off-on-card">
-      <div class="product-card">
-        <img src="/images/electricscooty1.jpeg" alt="scooty 1">
-        <h3>Hero Electric Optima Scooty</h3>
-        <p>4.0 ★★★★★ | 6 reviews</p>
-        <p><span class="old-price">&#8377;92,000.00</span> <span class="new-price">&#8377;64,000.00</span></p>
-        <button>Quick Shop</button>
-      </div>
-      <div class="product-card">
-        <img src="/images/electricscooty2.jpeg" alt="scooty 2">
-        <h3>Accelero Pro - Electric Scooter</h3>
-        <p>4.0 ★★★★★ | 6 reviews</p>
-        <p><span class="old-price">&#8377;88,499.00</span> <span class="new-price">&#8377;,62,000.00</span></p>
-        <button>Quick Shop</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- New-arrival section -->
-  <section class="new-section">
-    <h2>New Arrivals Products</h2>
-    <div class="new-grid">
-
-      <div class="new">
-        <img src="/images/solar-water-heater1.jpg" alt="Product 1">
-        <h3>Solar Water heater</h3>
-        <p class="new-price">&#8377;19,999</p>
-        <button>Add to cart</button>
-      </div>
-
-      <div class="new">
-        <img src="/images/solarbattery1.jpg" alt="Product 2">
-        <h3>Solar Battery</h3>
-        <p class="new-price">&#8377;20,000</p>
-        <button>Add to cart</button>
-      </div>
-
-      <div class="new">
-        <img src="/images/solarfan1 .jpg" alt="Product 3">
-        <h3>Solar Fan</h3>
-        <p class="new-price">&#8377;13,459</p>
-        <button>Add to cart</button>
-      </div>
-
-      <div class="new">
-        <img src="/images/solarinverter1.jpg" alt="Product 4">
-        <h3>Solar Inverter</h3>
-        <p class="new-price">&#8377;4,749</p>
-        <button>Add to cart</button>
-      </div>
-      <div class="new">
-        <img src="/images/chargers3.jpeg" alt="Product 1">
-        <h3>Charger</h3>
-        <p class="new-price">&#8377;549</p>
-        <button>Add to cart</button>
-      </div>
-
-      <div class="new">
-        <img src="/images/powerbank3.jpeg" alt="Product 2">
-        <h3>Powerbank</h3>
-        <p class="new-price">&#8377;10,000</p>
-        <button>Add to cart</button>
-      </div>
-
-      <div class="new">
-        <img src="/images/smartplugs3.jpeg" alt="Product 3">
-        <h3>Smart Plug</h3>
-        <p class="new-price">&#8377;689</p>
-        <button>Add to cart</button>
-      </div>
-
-      <div class="new">
-        <img src="/images/inverter.jpg" alt="Product 4">
-        <h3>Inverter</h3>
-        <p class="new-price">&#8377;87,995</p>
-        <button>Add to cart</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonial section -->
-  <section class="testimonial-section">
-    <h2>What People Say</h2>
-
-    <div class="all-testimonial">
-      <div class="testimonial">
-        <div class="testimonial-text">
-          <h3>Puja Verma <span>/ 3rd June, 2024</span></h3>
-          <div class="stars">★★★★★</div>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard.</p>
-        </div>
-        <div class="testimonial-img">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBwgu1A5zgPSvfE83nurkuzNEoXs9DMNr8Ww&s"
-            alt="Puja Verma">
+          <figure>
+            <img
+              src="/images/banner3.webp"
+              alt="A clean world concept banner"
+            />
+            <figcaption>
+              Eco-Friendly Innovations for a Better Tomorrow!
+            </figcaption>
+          </figure>
         </div>
       </div>
+      <div class="hero-buttons">
+        <a href="#" class="btn-primary">Shop Collection</a>
+        <a href="#" class="btn-secondary">Add to cart</a>
+      </div>
+    </section>
 
-      <div class="testimonial">
-        <div class="testimonial-text">
-          <h3>Freek Putnam <span>/ 3rd June, 2024</span></h3>
-          <div class="stars">★★★★★</div>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard.</p>
+    <!-- features section -->
+    <section>
+      <div class="features">
+        <div class="feature">
+          <i class="fa-solid fa-truck-fast"></i>
+          <h3>Free Shipping</h3>
+          <p>Fresh Shipping on All our Orders</p>
         </div>
-        <div class="testimonial-img">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdHoEvVXwwHJQEFlclzVc_wrEELWYQEbd6mw&s"
-            alt="Freek Putnam">
+        <div class="feature">
+          <i class="fa fa-headset"></i>
+          <h3>Support 24/7</h3>
+          <p>Contact us 24 hours a day</p>
+        </div>
+        <div class="feature">
+          <i class="fa fa-undo"></i>
+          <h3>100% Money Back</h3>
+          <p>You have 30 days to return</p>
+        </div>
+        <div class="feature">
+          <i class="fa fa-lock"></i>
+          <h3>Payment Secure</h3>
+          <p>We ensure secure payment</p>
         </div>
       </div>
+    </section>
 
-      <div class="testimonial">
-        <div class="testimonial-text">
-          <h3>Puja Verma <span>/ 3rd June, 2024</span></h3>
-          <div class="stars">★★★★★</div>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard.</p>
+    <!-- Featured Products -->
+    <section class="products">
+      <h2>Best-Selling Eco-Friendly Products</h2>
+      <div class="product-list">
+        <div class="product">
+          <img src="/images/chargers1.jpeg" alt="Solar Panel" height="250px" />
+          <h3>Solar powered products</h3>
+          <button>Shop Now</button>
+          <!-- <p>High-efficiency solar products for clean energy.</p> -->
         </div>
-        <div class="testimonial-img">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqbu3vikTenBD-KfH9gwGG7N_rtaCwa8rxLA&s"
-            alt="Puja Verma">
+        <div class="product">
+          <img
+            src="/images/powerbank1.jpeg"
+            alt="Smart Thermostat"
+            height="250px"
+          />
+          <h3>Powerbanks</h3>
+          <button>Shop Now</button>
+          <!-- <p>Save energy</p> -->
+        </div>
+        <div class="product">
+          <img src="/images/chargers2.jpeg" alt="Composter" />
+          <h3>Chargers</h3>
+          <button>Shop Now</button>
+          <!-- <p>Energize the future</p> -->
+        </div>
+        <div class="product">
+          <img src="/images/smartplugs1.jpeg" alt="Water Saver" />
+          <h3>Smartplugs</h3>
+          <button>Shop Now</button>
+          <!-- <p>Works smartly</p> -->
         </div>
       </div>
+    </section>
 
-      <div class="testimonial">
-        <div class="testimonial-text">
-          <h3>Freek Putnam <span>/ 3rd June, 2024</span></h3>
-          <div class="stars">★★★★★</div>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard.</p>
+    <div class="banner">
+      <div class="content">
+        <h1>Get The 30% Off On <span>Electric Scooty</span></h1>
+        <p>Protecting the environment by buying Electric scooty.</p>
+        <button>View All Products</button>
+      </div>
+      <div class="off-on-card">
+        <div class="product-card">
+          <img src="/images/electricscooty1.jpeg" alt="scooty 1" />
+          <h3>Hero Electric Optima Scooty</h3>
+          <p>4.0 ★★★★★ | 6 reviews</p>
+          <p>
+            <span class="old-price">&#8377;92,000.00</span>
+            <span class="new-price">&#8377;64,000.00</span>
+          </p>
+          <button>Quick Shop</button>
         </div>
-        <div class="testimonial-img">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQksR3Lt2Iy2rlmUKvJmc27GcXpe297gINhTA&s"
-            alt="Freek Putnam">
+        <div class="product-card">
+          <img src="/images/electricscooty2.jpeg" alt="scooty 2" />
+          <h3>Accelero Pro - Electric Scooter</h3>
+          <p>4.0 ★★★★★ | 6 reviews</p>
+          <p>
+            <span class="old-price">&#8377;88,499.00</span>
+            <span class="new-price">&#8377;,62,000.00</span>
+          </p>
+          <button>Quick Shop</button>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- footer section -->
-  <footer data-th-replace="~{fragment/common :: footer}">
-  </footer>
-</body>
+    <!-- New-arrival section -->
+    <section class="new-section">
+      <h2>New Arrivals Products</h2>
+      <div class="new-grid">
+        <div class="new">
+          <img src="/images/solar-water-heater1.jpg" alt="Product 1" />
+          <h3>Solar Water heater</h3>
+          <p class="new-price">&#8377;19,999</p>
+          <button>Add to cart</button>
+        </div>
 
+        <div class="new">
+          <img src="/images/solarbattery1.jpg" alt="Product 2" />
+          <h3>Solar Battery</h3>
+          <p class="new-price">&#8377;20,000</p>
+          <button>Add to cart</button>
+        </div>
+
+        <div class="new">
+          <img src="/images/solarfan1 .jpg" alt="Product 3" />
+          <h3>Solar Fan</h3>
+          <p class="new-price">&#8377;13,459</p>
+          <button>Add to cart</button>
+        </div>
+
+        <div class="new">
+          <img src="/images/solarinverter1.jpg" alt="Product 4" />
+          <h3>Solar Inverter</h3>
+          <p class="new-price">&#8377;4,749</p>
+          <button>Add to cart</button>
+        </div>
+        <div class="new">
+          <img src="/images/chargers3.jpeg" alt="Product 1" />
+          <h3>Charger</h3>
+          <p class="new-price">&#8377;549</p>
+          <button>Add to cart</button>
+        </div>
+
+        <div class="new">
+          <img src="/images/powerbank3.jpeg" alt="Product 2" />
+          <h3>Powerbank</h3>
+          <p class="new-price">&#8377;10,000</p>
+          <button>Add to cart</button>
+        </div>
+
+        <div class="new">
+          <img src="/images/smartplugs3.jpeg" alt="Product 3" />
+          <h3>Smart Plug</h3>
+          <p class="new-price">&#8377;689</p>
+          <button>Add to cart</button>
+        </div>
+
+        <div class="new">
+          <img src="/images/inverter.jpg" alt="Product 4" />
+          <h3>Inverter</h3>
+          <p class="new-price">&#8377;87,995</p>
+          <button>Add to cart</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial section -->
+    <section class="testimonial-section">
+      <h2>What People Say</h2>
+
+      <div class="all-testimonial">
+        <div class="testimonial">
+          <div class="testimonial-text">
+            <h3>Puja Verma <span>/ 3rd June, 2024</span></h3>
+            <div class="stars">★★★★★</div>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard.
+            </p>
+          </div>
+          <div class="testimonial-img">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBwgu1A5zgPSvfE83nurkuzNEoXs9DMNr8Ww&s"
+              alt="Puja Verma"
+            />
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-text">
+            <h3>Freek Putnam <span>/ 3rd June, 2024</span></h3>
+            <div class="stars">★★★★★</div>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard.
+            </p>
+          </div>
+          <div class="testimonial-img">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdHoEvVXwwHJQEFlclzVc_wrEELWYQEbd6mw&s"
+              alt="Freek Putnam"
+            />
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-text">
+            <h3>Puja Verma <span>/ 3rd June, 2024</span></h3>
+            <div class="stars">★★★★★</div>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard.
+            </p>
+          </div>
+          <div class="testimonial-img">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqbu3vikTenBD-KfH9gwGG7N_rtaCwa8rxLA&s"
+              alt="Puja Verma"
+            />
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-text">
+            <h3>Freek Putnam <span>/ 3rd June, 2024</span></h3>
+            <div class="stars">★★★★★</div>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard.
+            </p>
+          </div>
+          <div class="testimonial-img">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQksR3Lt2Iy2rlmUKvJmc27GcXpe297gINhTA&s"
+              alt="Freek Putnam"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer section -->
+    <footer data-th-replace="~{fragment/common :: footer}"></footer>
+  </body>
 </html>
