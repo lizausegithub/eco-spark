@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-th-replace="~{fragment/admin :: head}"></head>
+
+<body>
+    <link rel="stylesheet" href="/style/admin.category.css">
+    <nav data-th-replace="~{fragment/admin :: navLink}"></nav>
+
+    <section class="dashboard">
+        <div data-th-replace="~{fragment/admin :: searchBox}"></div>
+        <div class="title">
+            <i class="fas fa-th-large"></i>
+            <span class="text">Category</span>
+            <button class="add-btn" onclick="openModal()">Add Category</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Category Name</th>
+                    <th>Category Description</th>
+                    <th>Category Image</th>
+                    <th>Category Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="categoryTable">
+                <tr data-th-each="category :${categories}">
+                    <td data-th-text="${category.categoryTitle}"></td>
+                    <td data-th-text="${category.categoryDescription}"></td>
+                    <td></td>
+                    <td data-th-text="${category.categoryStatus}"></td>
+                    <td>
+                        <a data-th-href="|/admin/edit?id=${category.categoryId}|">edit</a>
+                        <a data-th-href="|/admin/delete?id=${category.categoryId}|">delete</a>
+                    </td>
+
+
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Modal -->
+        <div id="categoryModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="modal-close-btn" onclick="closeModal()">&times;</span>
+                <h3>Add Category</h3>
+
+                <form action="/admin/category" id="categoryForm" method="post">
+                    <label for="categoryName">Category Name:</label>
+                    <input type="text" id="categoryName" name="categoryTitle">
+
+                    <label for="categoryDesc">Category Description:</label>
+                    <input type="text" id="categoryDesc" name="categoryDescription">
+
+                    <label for="categoryImage">Category Image:</label>
+                    <input type="file" id="categoryImage" name="categoryImageUrl">
+
+                    <label for="categoryStatus">Category Status:</label>
+                    <select id="categoryStatus">
+                        <option value="ACTIVE">Active</option>
+                        <option value="INACTIVE">Inactive</option>
+                    </select>
+
+                    <button class="save-btn" onclick="saveCategory()">Save</button>
+                </form>
+            </div>
+        </div>
+
+    </section>
+    <script src="/script/category.js"></script>
+</body>
+
+</html>

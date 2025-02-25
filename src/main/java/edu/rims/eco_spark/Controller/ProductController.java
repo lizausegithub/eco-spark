@@ -6,7 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.rims.eco_spark.entity.Category;
+import edu.rims.eco_spark.entity.Product;
 import edu.rims.eco_spark.repository.CategoryRepository;
+import edu.rims.eco_spark.repository.ProductRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/product")
 public class ProductController {
+
+    @Autowired
+    private ProductRepository ProductRepository;
 
     @Autowired
     private CategoryRepository categoryRepository;
@@ -28,6 +33,13 @@ public class ProductController {
 
     @GetMapping("/pdp")
     String pdp() {
+        return "product/pdp";
+    }
+
+    @GetMapping("/product/pdp")
+    String getProductByFoodId(@RequestParam("product") String productId, Model model) {
+        Product product = ProductRepository.findById(productId).orElseThrow();
+        model.addAttribute("product", product);
         return "product/pdp";
     }
 
