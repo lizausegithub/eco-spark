@@ -1,64 +1,70 @@
+.main-nav {
+  position: sticky;
+  top: 0.5rem;
+  z-index: 2;
+  width: 100%;
+}
+
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f9f9f9;
-    opacity: 2;
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 170px;
-    width: 60%;
-    margin-left: 205px;
-    z-index: 1;
-    position: absolute;
-    top: -25px;
-    backdrop-filter: blur(45px);
-    transition: top 0.3s ease;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 170px;
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  translate: -50%;
+  backdrop-filter: blur(45px);
+  transition: top 0.3s ease;
 }
 
 .nav-menu {
-    list-style: none;
-    display: flex;
+  list-style: none;
+  display: flex;
 }
 
 .nav-menu li {
-    margin: 0 10px;
+  margin: 0 10px;
 }
 
 .nav-menu a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    transition: color 0.3s ease;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: color 0.3s ease;
 }
 
 .nav-menu a:hover {
-    color: #388e3c;
+  color: #388e3c;
 }
 
 .sticky-nav {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-left: 0;
-    background-color: rgba(249, 249, 249, 0.9);
-    padding: 10px 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    transition: all 2s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: 0;
+  background-color: rgba(249, 249, 249, 0.9);
+  padding: 10px 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 2s ease-in-out;
 }
 
 .buy-now-btn {
-    background-color: #C3FDB1;
-    color: black;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 20px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+  background-color: #c3fdb1;
+  color: black;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 .buy-now-btn:hover {
-    background-color: #388e3c;
+  background-color: #388e3c;
 }
