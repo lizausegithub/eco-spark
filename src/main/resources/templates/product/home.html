@@ -32,7 +32,7 @@
       <label for="price-filter">Max-price:</label>
       <input type="number" id="price-filter" value="1000">
     </aside>
-    <div class="product_section">
+    <div class="product_section" data-th-if="${param.category != null}">
       <h2 data-th-text="|Matching items for ${category.categoryTitle}|"></h2>
 
       <div class="product-container">
@@ -49,8 +49,38 @@
             </div>
           </a>
         </article>
+
+        <div data-th-if="${#lists.size(category.products) == 0}">
+          <h1>No Item Available</h1>
+        </div>
+
       </div>
     </div>
+
+
+    <div class="product_section" data-th-if="${param.search != null}">
+      <h2 data-th-text="|Matching items for ${param.search}|"></h2>
+
+      <div class="product-container">
+        <article class="product" data-th-each="item : ${products}">
+          <div class="img-container">
+            <img src="/images/chargers1.jpeg" alt="img">
+          </div>
+          <div class="product-title">
+            <h4 data-th-text="${item.productTitle}"></h4>
+          </div>
+          <div class="product-action">
+            <a href="#">Add to cart</a>
+          </div>
+        </article>
+
+        <div data-th-if="${#lists.size(products) == 0}">
+          <h1>No Item Available</h1>
+        </div>
+
+      </div>
+    </div>
+
   </main>
 
   </div>

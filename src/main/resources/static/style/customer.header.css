@@ -87,7 +87,7 @@ header {
 
 .search-input {
   flex: 1;
-  padding: 8px 8px;
+  padding: 8px 15px;
   border: none;
   border-radius: 5px;
   font-size: 14px;
