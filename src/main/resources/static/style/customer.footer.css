@@ -62,7 +62,7 @@ ul li a {
     color: black;
 }
 
-form {
+.col form {
     padding-bottom: 15px;
     display: flex;
     align-items: center;
@@ -71,12 +71,12 @@ form {
     margin-bottom: 50px;
 }
 
-form .far {
+.col form .far {
     font-size: 18px;
     margin-right: 10px;
 }
 
-form input {
+.col form input {
     width: 100%;
     background: transparent;
     color: #ccc;
@@ -84,14 +84,14 @@ form input {
     outline: none;
 }
 
-form button {
+.col form button {
     background: transparent;
     border: 0;
     outline: none;
     cursor: pointer;
 }
 
-form button .fas {
+.col form button .fas {
     font-size: 16px;
     color: #ccc;
 }

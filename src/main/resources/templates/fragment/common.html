@@ -1,130 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ecospark-Green technology store</title>
-    <link rel="stylesheet" href="/style/base.css" />
-    <link rel="stylesheet" href="/style/customer.header.css" />
-    <link rel="stylesheet" href="/style/customer.nav.css" />
-    <link rel="stylesheet" href="/style/customer.footer.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
 
-  <body>
-    <header class="header">
-      <div class="logo"><img src="/images/logo.jpg" alt="" /></div>
-      <div class="search-container">
-        <div class="dropdown">
-          <button class="dropdown-button">
-            All Categories
-            <i class="fa-solid fa-caret-down"></i>
-          </button>
-          <div class="dropdown-menu">
-            <a
-              data-th-href="|/product/category/home?category=${category.categoryId}|"
-              data-th-each="category : ${categories}"
-            >
-              <span data-th-text="${category.categoryTitle}"></span>
-              <i class="fa-solid fa-greater-than"></i
-            ></a>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ecospark-Green technology store</title>
+  <link rel="stylesheet" href="/style/base.css" />
+  <link rel="stylesheet" href="/style/customer.header.css" />
+  <link rel="stylesheet" href="/style/customer.nav.css" />
+  <link rel="stylesheet" href="/style/customer.footer.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo"><img src="/images/logo.jpg" alt="" /></div>
+    <div class="search-container">
+      <div class="dropdown">
+        <button class="dropdown-button">
+          All Categories
+          <i class="fa-solid fa-caret-down"></i>
+        </button>
+        <div class="dropdown-menu">
+          <a data-th-href="|/product/category/home?category=${category.categoryId}|"
+            data-th-each="category : ${categories}">
+            <span data-th-text="${category.categoryTitle}"></span>
+            <i class="fa-solid fa-greater-than"></i></a>
         </div>
-        <input
-          type="text"
-          class="search-input"
-          placeholder="What are you looking for?"
-        />
+      </div>
+
+      <form action="/search">
+        <input type="text" class="search-input" placeholder="What are you looking for?" name="search" />
         <button class="search-button">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-      </div>
-      <div class="icon">
-        <i class="fa-regular fa-heart" title="Wishlist"></i>
-        <i class="fa-regular fa-user" title="Login"></i>
-        <i class="fa-solid fa-cart-flatbed" title="Cart"></i>
-      </div>
-    </header>
+      </form>
 
-    <div class="main-nav" data-th-fragment="customerNav">
-      <nav class="navbar">
-        <ul class="nav-menu">
-          <li><a href="/customer/home">Home</a></li>
-          <li><a href="#">Shop</a></li>
-          <li><a href="#">New Arrival</a></li>
-          <li><a href="#">Sale</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Blogs</a></li>
-          <li><a href="#">Pages</a></li>
-        </ul>
-        <a href="#" class="buy-now-btn">Buy Now</a>
-      </nav>
     </div>
+    <div class="icon">
+      <i class="fa-regular fa-heart" title="Wishlist"></i>
+      <i class="fa-regular fa-user" title="Login"></i>
+      <i class="fa-solid fa-cart-flatbed" title="Cart"></i>
+    </div>
+  </header>
 
-    <footer>
-      <div class="row">
-        <div class="col">
-          <img src="/images/logo.jpg" alt="logo" class="logo" />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde esse
-            minima commodi at quaerat eum nemo quos molestias odio minus harum,
-            incidunt repellat totam labore reiciendis dolorem veniam ex
-            veritatis?
-          </p>
-        </div>
-        <div class="col">
-          <h3>
-            office
-            <div class="underline"><span></span></div>
-          </h3>
-          <p>Chhend</p>
-          <p>Rims, Rourkela</p>
-          <p>Sundargarh, pin 769013, India</p>
-          <p class="email-id">ecosparkgreentech@gmail.com</p>
-          <h4>+91 - 8256562688</h4>
-        </div>
-        <div class="col">
-          <h3>
-            Links
-            <div class="underline"><span></span></div>
-          </h3>
-          <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Services</a></li>
-            <li><a href="">About us</a></li>
-            <li><a href="">Features</a></li>
-            <li><a href="">Contact</a></li>
-          </ul>
-        </div>
-        <div class="col">
-          <h3>
-            Newsletter
-            <div class="underline"><span></span></div>
-          </h3>
-          <form>
-            <i class="fa-regular fa-envelope"></i>
-            <input type="email" placeholder="Enter your email-id" required />
-            <button type="submit">
-              <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </form>
-          <div class="social-icons">
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-linkedin-in"></i>
-          </div>
+  <div class="main-nav" data-th-fragment="customerNav">
+    <nav class="navbar">
+      <ul class="nav-menu">
+        <li><a href="/customer/home">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">New Arrival</a></li>
+        <li><a href="#">Sale</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Blogs</a></li>
+        <li><a href="#">Pages</a></li>
+      </ul>
+      <a href="#" class="buy-now-btn">Buy Now</a>
+    </nav>
+  </div>
+
+  <footer>
+    <div class="row">
+      <div class="col">
+        <img src="/images/logo.jpg" alt="logo" class="logo" />
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde esse
+          minima commodi at quaerat eum nemo quos molestias odio minus harum,
+          incidunt repellat totam labore reiciendis dolorem veniam ex
+          veritatis?
+        </p>
+      </div>
+      <div class="col">
+        <h3>
+          office
+          <div class="underline"><span></span></div>
+        </h3>
+        <p>Chhend</p>
+        <p>Rims, Rourkela</p>
+        <p>Sundargarh, pin 769013, India</p>
+        <p class="email-id">ecosparkgreentech@gmail.com</p>
+        <h4>+91 - 8256562688</h4>
+      </div>
+      <div class="col">
+        <h3>
+          Links
+          <div class="underline"><span></span></div>
+        </h3>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">Services</a></li>
+          <li><a href="">About us</a></li>
+          <li><a href="">Features</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>
+          Newsletter
+          <div class="underline"><span></span></div>
+        </h3>
+        <form>
+          <i class="fa-regular fa-envelope"></i>
+          <input type="email" placeholder="Enter your email-id" required />
+          <button type="submit">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+        <div class="social-icons">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-linkedin-in"></i>
         </div>
       </div>
-      <hr />
-      <p class="copyright">
-        Green technology store @ 2025 - All Rights Reserved
-      </p>
-    </footer>
-  </body>
+    </div>
+    <hr />
+    <p class="copyright">
+      Green technology store @ 2025 - All Rights Reserved
+    </p>
+  </footer>
+</body>
+
 </html>
