@@ -45,11 +45,11 @@ public class ProductController {
         return "product/pdp";
     }
 
-    @GetMapping("/product/search")
+    @GetMapping("/search")
     String searchProduct(@RequestParam("search") String productTitle, Model model) {
         List<Product> products = ProductRepository.findByProductTitleContainingIgnoreCase(productTitle);
         model.addAttribute("products", products);
-        return " customer/home";
+        return "product/home";
     }
 
 }
