@@ -1,5 +1,7 @@
 package edu.rims.eco_spark.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,6 +43,13 @@ public class ProductController {
         Product product = ProductRepository.findById(productId).orElseThrow();
         model.addAttribute("product", product);
         return "product/pdp";
+    }
+
+    @GetMapping("/product/search")
+    String searchProduct(@RequestParam("search") String productTitle, Model model) {
+        List<Product> products = ProductRepository.findByProductTitleContainingIgnoreCase(productTitle);
+        model.addAttribute("products", products);
+        return " customer/home";
     }
 
 }
