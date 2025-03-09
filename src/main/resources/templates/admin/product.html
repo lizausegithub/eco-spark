@@ -18,6 +18,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>Category Name</th>
                     <th>Product Name</th>
                     <th>Product Description</th>
                     <th>Product Image</th>
@@ -28,7 +29,18 @@
             </thead>
             <tbody id="productTable">
 
-                <tr></tr>
+                <tr data-th-each="item : ${products}">
+                    <td data-th-text="${item.category.categoryTitle}"></td>
+                    <td data-th-text="${item.productTitle}"></td>
+                    <td data-th-text="${item.productDescription}"></td>
+                    <td></td>
+                    <td data-th-text="${item.productPrice}"></td>
+                    <td data-th-text="${item.productStock}"></td>
+                    <td>
+                        <a data-th-href="|/admin/edit?id=${item.productId}|">edit</a>
+                        <a data-th-href="|/admin/delete?id=${item.productId}|">delete</a>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -37,14 +49,22 @@
         <div id="productModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
-                <h3>Add Product</h3>
 
                 <form action="/admin/product" id="product" method="post">
+                    <h3>Add Product</h3>
+
+                    <label> Category Name:
+                        <select name="categoryId" id="categoryName">
+                            <option data-th-each="category : ${categories}" data-th-text="${category.categoryTitle}" data-th-value="${category.categoryId}">
+                            </option>
+                        </select>
+                    </label>
+
                     <label for="productName">Product Name:</label>
                     <input type="text" id="productName" name="productTitle">
 
                     <label for="productDesc">Product Description:</label>
-                    <input type="text" id="productDesc" name="categoryDescription">
+                    <input type="text" id="productDesc" name="productDescription">
 
                     <label for="productImage">Product Image:</label>
                     <input type="file" id="productImage" name="productImageUrl">

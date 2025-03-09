@@ -37,15 +37,17 @@
 
       <div class="product-container">
         <article class="product" data-th-each="item : ${category.products}">
-          <div class="img-container">
-            <img src="/images/chargers1.jpeg" alt="img">
-          </div>
-          <div class="product-title">
-            <h4 data-th-text="${item.productTitle}"></h4>
-          </div>
-          <div class="product-action">
-            <a href="#">Add to cart</a>
-          </div>
+          <a data-th-href="|/product/product/pdp?product=${item.productId}|">
+            <div class="img-container">
+              <img src="/images/chargers1.jpeg" alt="img">
+            </div>
+            <div class="product-title">
+              <h4 data-th-text="${item.productTitle}"></h4>
+            </div>
+            <div class="product-action">
+              <a href="#">Add to cart</a>
+            </div>
+          </a>
         </article>
 
         <div data-th-if="${#lists.size(category.products) == 0}">

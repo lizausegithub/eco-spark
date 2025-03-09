@@ -9,17 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.rims.eco_spark.entity.Category;
+import edu.rims.eco_spark.entity.Product;
 import edu.rims.eco_spark.repository.CategoryRepository;
+import edu.rims.eco_spark.repository.ProductRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
     @Autowired
     private CategoryRepository categoryRepository;
+
+    @Autowired
+    private ProductRepository ProductRepository;
 
     @GetMapping("/dashboard")
     String dashborad() {
@@ -41,12 +48,25 @@ public class AdminController {
     }
 
     @GetMapping("/product")
-    String product() {
+    String product(Model model) {
+        List<Category> categories = categoryRepository.findAll();
+        List<Product> products = ProductRepository.findAll();
+        model.addAttribute("categories", categories);
+        model.addAttribute("products", products);
         return "admin/product";
     }
 
+    @PostMapping("/product")
+    public String productAdd(@ModelAttribute Product product, @RequestParam String categoryId) {
+        Category category = categoryRepository.findById(categoryId).orElseThrow();
+        product.setCategory(category);
+        ProductRepository.save(product);
+        return "redirect:/admin/product";
+    }
+    
+
     @GetMapping("/edit")
-    String edit(@RequestParam String id, Model model) {
+    public String edit(@RequestParam String id, Model model) {
         Category category = categoryRepository.findById(id).orElseThrow();
         model.addAttribute("category", category);
         // System.out.println(category.getCategoryTitle());

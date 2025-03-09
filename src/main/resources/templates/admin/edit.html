@@ -5,15 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ecospark - Green technology store</title>
+    <link rel="stylesheet" href="/style/admin.edit.css">
+    <link rel="stylesheet" href="/style/base.css">
 </head>
 
 <body>
-    <form>
-        <input type="text" data-th-value="${category.categoryTitle}">
-        <input type="text" data-th-value="${category.categoryDescription}">
-        <input type="text" data-th-value="${category.categoryImageUrl}">
-        <input type="text" data-th-value="${category.categoryStatus}">
-    </form>
+    <div class="edit-container">
+        <h2>EDIT</h2>
+        <form>
+            <label for="category-name">Category Name</label>
+            <input type="text" data-th-value="${category.categoryTitle}">
+
+            <label for="category-description">Category Description</label>
+            <input type="text" data-th-value="${category.categoryDescription}">
+
+            <label for="category-image">Category Image</label>
+            <input type="text" data-th-value="${category.categoryImageUrl}">
+
+            <label for="category-status">Category Status</label>
+            <select name="categoryStatus" id="categoryStatus" data-th-field="${category.categoryStatus}">
+                <option value="ACTIVE">ACTIVE</option>
+                <option value="INACTIVE">INACTIVE</option>
+            </select>
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
 </body>
 
 </html>
