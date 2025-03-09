@@ -60,7 +60,7 @@ body.dark {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #4DA3FF;
+    background: #4ff17a;
 }
 
 body.dark::-webkit-scrollbar-thumb:hover,

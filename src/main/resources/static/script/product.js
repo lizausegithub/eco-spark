@@ -42,7 +42,7 @@ function closeModal() {
     document.getElementById("productModal").style.display = "none";
 }
 
-function saveProduct(event) {
+function saveProduct() {
     event.preventDefault();
     let name = document.getElementById("productName").value;
     let desc = document.getElementById("productDesc").value;
