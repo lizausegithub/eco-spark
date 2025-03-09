@@ -72,7 +72,7 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 100vh;
     width: 250px;
     padding: 10px 14px;
     background-color: var(--panel-color);
@@ -80,9 +80,11 @@ nav {
     transition: var(--tran-05);
 }
 
-nav.close {
+/* nav .close {
+    position: fixed;
     width: 73px;
-}
+    height: 100vh;
+} */
 
 nav .logo-name {
     display: flex;

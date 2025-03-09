@@ -42,8 +42,8 @@ function closeModal() {
     document.getElementById("productModal").style.display = "none";
 }
 
-function saveProduct() {
-    event.preventDefault();
+function saveProduct(e) {
+    e.preventDefault();
     let name = document.getElementById("productName").value;
     let desc = document.getElementById("productDesc").value;
     let image = document.getElementById("productImage").files[0]?.name || "📷";
@@ -72,7 +72,7 @@ function saveProduct() {
     closeModal();
 }
 
-document.getElementById("product").addEventListener("submit", saveProduct);
+document.getElementById("product").addEventListener("submit", saveProduct); 
 
 function editProduct(index) {
     alert("Edit Product " + index);
