@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-th-replace="~{fragment/admin :: head}"></head>
+
+<body>
+    <link rel="stylesheet" href="/style/admin.widget.css">
+    <link rel="stylesheet" href="/style/admin.category.css">
+    <nav data-th-replace="~{fragment/admin :: navLink}"></nav>
+
+    <section class="dashboard">
+        <div data-th-replace="~{fragment/admin :: searchBox}"></div>
+        <div class="title">
+            <i class="fa-solid fa-star"></i>
+            <span class="text">Widget</span>
+        </div>
+
+        <div class="addWidgetContainer">
+            <form action="/admin/widget/add" method="post">
+                <input type="text" name="widgetName" placeholder="Enter a widget name..."
+                    data-th-value="${widget != null ? widget.widgetName : ''}">
+                <input type="text" placeholder="sequence id" name="sequence" data-th-value="${widget != null ? widget.sequence: ''}">
+                <input type="hidden" name="widgetId" data-th-value="${widget != null ? widget.widgetId : ''}">
+                <input type="submit">
+            </form>
+        </div>
+
+        <div class="addProductWigetBtnContainer">
+            <button class="addProductWigetBtn" onclick="openModal()">Add product to widget</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Widget Name</th>
+                    <th>Widget Id</th>
+                    <th>Sequence</th>
+                    <th>Widget Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="categoryTable">
+                <tr data-th-each="widget :${widgets}">
+                    <td data-th-text="${widget.widgetName}"></td>
+                    <td data-th-text="${widget.widgetId}"></td>
+                    <td data-th-text="${widget.sequence}"></td>
+                    <td data-th-text="${widget.widgetStatus}"
+                        data-th-class="${widget.widgetStatus.name() == 'ACTIVE' ? 'clr-yellow' : 'clr-red'}"></td>
+                    <td>
+                        <a data-th-href="|/admin/widget/edit?id=${widget.widgetId}|" class="action-link"><i
+                                class="fa-solid fa-pen-to-square"></i></a>
+                        <a data-th-href="|/admin/widget/remove?id=${widget.widgetId}|" class="action-link"><i
+                                class="fa-solid fa-trash"></i></a>
+                        <a data-th-href="|/admin/widget/products?id=${widget.widgetId}|" title="Show products"
+                            style="all: unset; cursor: pointer;"><i class="fas fa-box-open"></i></a>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Modal -->
+        <div class="widgetModal d-none">
+            <div class="modal-box">
+                <div class="modal-header">
+                    <h2>Add product to widget</h2>
+                </div>
+                <hr>
+                <div class="modal-body">
+                    <form action="/admin/widget/product/add" method="post" enctype="multipart/form-data"
+                        id="widgetProductForm">
+                        <p>Note: Download template <a href="/file/widget-template.csv" download>click the link</a></p>
+                        <input type="file" accept="text/csv" name="file">
+                        <div class="text-center">
+                            <input type="submit" value="Upload">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="cross-icon">
+                    <button onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <script src="/script/widget.js"></script>
+</body>
+
+</html>

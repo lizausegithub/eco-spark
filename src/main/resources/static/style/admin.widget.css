@@ -1,0 +1,129 @@
+.addWidgetContainer {
+    padding-block: 1rem;
+}
+
+.addWidgetContainer form {
+    display: flex;
+    gap: 1rem;
+}
+
+.addWidgetContainer input[type="text"] {
+    width: 100%;
+    padding: 0.8rem 0.5rem;
+}
+
+.addWidgetContainer input[type="submit"] {
+    padding-inline: 2rem;
+    background-color: rgb(56, 177, 90);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    color: white;
+    box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.3);
+    transition: 0.5s;
+}
+
+.addWidgetContainer input[type="submit"]:hover {
+    background-color: rgb(9, 90, 32);
+}
+
+.clr-yellow {
+    color: rgb(97, 97, 6);
+}
+
+.clr-red {
+    color: rgb(75, 17, 3);
+}
+
+.action-link {
+    text-decoration: none;
+    color: black;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.addProductWigetBtnContainer {
+    margin-bottom: 0.5rem;
+}
+
+.addProductWigetBtnContainer .addProductWigetBtn {
+    padding: 0.5rem 1.5rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+}
+
+.widgetModal {
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: grid;
+    place-items: center;
+}
+
+.widgetModal .modal-box {
+    width: max(40%, 350px);
+    background-color: #f1f1f1;
+    border-radius: 1rem;
+    position: relative;
+    animation: flash-in 0.25s;
+}
+
+.widgetModal .modal-box h2 {
+    padding: 0.5rem 1rem;
+}
+
+.widgetModal .modal-box .modal-body {
+    padding: 1rem;
+}
+
+.widgetModal .modal-box .modal-body input[type="file"] {
+    width: 100%;
+    border: 1px solid gray;
+    margin-block: 0.5rem;
+}
+
+.widgetModal .modal-box .modal-body input[type="submit"] {
+    border-radius: 0.5rem;
+    padding: 0.2rem 2rem;
+    outline: none;
+    border: none;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1),
+        -5px 5px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.cross-icon {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+}
+
+.cross-icon button {
+    all: unset;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: deeppink;
+}
+
+.d-none {
+    display: none;
+}
+
+@keyframes flash-in {
+    from {
+        opacity: 0;
+        scale: 0;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}

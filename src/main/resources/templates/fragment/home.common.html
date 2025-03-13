@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Featured Products Fragment -->
+    <section class="products" th:fragment="featuredProduct(products)">
+        <h2>Best-Selling Eco-Friendly Products</h2>
+        <div class="product-list">
+            <div class="product" th:each="product : ${products}">
+                <img src="/images/chargers1.jpeg" alt="Solar Panel" height="250px" />
+                <h3 th:text="${product.productTitle}"></h3>
+                <button>Shop Now</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="banner" th:fragment="banner(products)">
+        <div class="content">
+            <h1>Get The 30% Off On <span>Electric Scooty</span></h1>
+            <p>Protecting the environment by buying Electric scooty.</p>
+            <!-- <button>View All Products</button> -->
+        </div>
+        <div class="off-on-card">
+            <div class="product-card" th:each="product : ${products}">
+                <img src="/images/electricscooty2.jpeg" alt="scooty 2" />
+                <h3 th:text="${product.productTitle}"></h3>
+                <p>4.0 ★★★★★ | 6 reviews</p>
+                <p>
+                    <span class="old-price">&#8377;88,499.00</span>
+                    <span class="new-price">&#8377;62,000.00</span>
+                </p>
+                <button>Quick Shop</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- New-arrival section -->
+    <section class="new-section" th:fragment="newArrivals(products)">
+        <h2>New Arrivals Products</h2>
+        <div class="new-grid">
+            <div class="new" th:each="product : ${products}">
+                <img src="/images/solar-water-heater1.jpg" alt="Product 1" />
+                <h3 th:text="${product.productTitle}"></h3>
+                <p class="new-price" data-th-text="|&#8377;${product.productPrice}|"></p>
+                <button>Add to cart</button>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

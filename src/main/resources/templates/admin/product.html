@@ -18,6 +18,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>Product Id</th>
                     <th>Category Name</th>
                     <th>Product Name</th>
                     <th>Product Description</th>
@@ -30,6 +31,7 @@
             <tbody id="productTable">
 
                 <tr data-th-each="item : ${products}">
+                    <td data-th-text="${item.productId}"></td>
                     <td data-th-text="${item.category.categoryTitle}"></td>
                     <td data-th-text="${item.productTitle}"></td>
                     <td data-th-text="${item.productDescription}"></td>
@@ -37,8 +39,8 @@
                     <td data-th-text="${item.productPrice}"></td>
                     <td data-th-text="${item.productStock}"></td>
                     <td>
-                        <a data-th-href="|/admin/edit?id=${item.productId}|">edit</a>
-                        <a data-th-href="|/admin/delete?id=${item.productId}|">delete</a>
+                        <a data-th-href="|/admin/edit?id=${item.productId}|"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a data-th-href="|/admin/delete?id=${item.productId}|"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
 

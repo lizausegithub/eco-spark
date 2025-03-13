@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-th-replace="~{fragment/admin :: head}"></head>
+
+<body>
+    <link rel="stylesheet" href="/style/admin.widget.css">
+    <link rel="stylesheet" href="/style/admin.category.css">
+    <nav data-th-replace="~{fragment/admin :: navLink}"></nav>
+
+    <section class="dashboard">
+        <div data-th-replace="~{fragment/admin :: searchBox}"></div>
+        <div class="title">
+            <i class="fa-solid fa-star"></i>
+            <span class="text">Widget product</span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Widget Name</th>
+                    <th>Widget status</th>
+                    <th>Product Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="categoryTable">
+                <tr data-th-each="product :${widget.products}">
+                    <td data-th-text="${widget.widgetName}"></td>
+                    <td data-th-text="${widget.widgetStatus}"
+                        data-th-class="${widget.widgetStatus.name() == 'ACTIVE' ? 'clr-yellow' : 'clr-red'}"></td>
+                    <td data-th-text="${product.productTitle}"></td>
+                    <td>
+                        <a data-th-href="|/admin/widget/product/remove?widgetId=${widget.widgetId}&productId=${product.productId}|" class="action-link"><i
+                                class="fa-solid fa-trash"></i></a>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+
+    </section>
+</body>
+
+</html>
