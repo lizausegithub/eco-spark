@@ -1,5 +1,6 @@
 package edu.rims.eco_spark.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -43,4 +44,18 @@ public class Product extends Auditable {
 
     @OneToMany(mappedBy = "product")
     private List<Review> reviews;
+
+    @ManyToMany(mappedBy = "products")
+    private List<Widget> widgets;
+
+    public void addWidget(Widget widget) {
+        if (widgets == null)
+            widgets = new ArrayList<>();
+
+        widgets.add(widget);
+    }
+
+    public void removeWidget(Widget widget) {
+        widgets.remove(widget);
+    }
 }

@@ -1,0 +1,127 @@
+.title {
+    display: flex;
+    align-items: center;
+    margin: 20px 0 30px 0;
+
+}
+
+.title i {
+    position: relative;
+    height: 35px;
+    width: 35px;
+    background-color: var(--primary-color);
+    border-radius: 6px;
+    color: var(--title-icon-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.title .text {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-left: 10px;
+}
+
+
+.table_header {
+    margin: 20px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Sans-Serif';
+}
+
+.table_body {
+    overflow-x: auto;
+    margin-top: 20px;
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+th,
+td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+
+}
+
+th {
+    background-color: rgb(56, 177, 90);
+    color: white;
+    font-weight: 600;
+
+}
+
+td {
+    background-color: #f9f9f9;
+
+}
+
+tr:nth-child(even) td {
+    background-color: #f1f1f1;
+
+}
+
+/* table {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+
+} */
+table tr:hover td {
+    background-color: rgb(144, 231, 168);
+    /* Change this color to whatever you prefer */
+    cursor: pointer;
+    /* Optional: change the cursor to a pointer on hover */
+}
+
+.status {
+    padding: 0 5rem 1rem;
+    border-radius: 2rem;
+    display: inline-block;
+    width: 150px;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.status p {
+    margin: 0;
+}
+
+.status:hover p {
+    color: white;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.status.delivered {
+    background-color: lightgreen;
+    color: darkgreen;
+}
+
+.status.cancelled {
+    background-color: lightcoral;
+    color: red;
+}
+
+
+.status.pending {
+    background-color: lightblue;
+    color: blue;
+}

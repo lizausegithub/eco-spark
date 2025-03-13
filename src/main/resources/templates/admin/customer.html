@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head data-th-replace="~{fragment/admin :: head}"></head>
+<body>
+    <link rel="stylesheet" href="/style/admin.customer.css">
+    <nav data-th-replace="~{fragment/admin :: navLink}"></nav>
+
+    <section class="dashboard">
+        <div data-th-replace="~{fragment/admin :: searchBox}"></div>
+        <div class="title">
+            <i class="fas fa-user"></i>
+            <span class="text">Customer</span>
+        </div>  
+
+        <div class="table-container">
+            <h2>Customer Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Registration Date</th>
+                        <th>Total Order</th>
+                        <th>Total Spend</th>
+                        <th>Last Order</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Sushrita</td>
+                        <td>Bhubaneswar, Odisha</td>
+                        <td>2022-01-15</td>
+                        <td>25</td>
+                        <td>₹15,000</td>
+                        <td>2022-01-15</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Bandita</td>
+                        <td>Cuttack, Odisha</td>
+                        <td>2021-03-22</td>
+                        <td>18</td>
+                        <td>₹10,800</td>
+                        <td>2022-01-15</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Prabir</td>
+                        <td>Puri, Odisha</td>
+                        <td>2020-07-10</td>
+                        <td>30</td>
+                        <td>₹18,000</td>
+                        <td>2022-01-15</td>
+                        <td>Inactive</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Soumya</td>
+                        <td>Rourkela, Odisha</td>
+                        <td>2022-11-05</td>
+                        <td>10</td>
+                        <td>₹6,000</td>
+                        <td>2022-01-15</td>
+                        <td>Active</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>     
+</body>
+</html>

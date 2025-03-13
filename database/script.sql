@@ -112,3 +112,12 @@ CREATE TABLE review (
     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
 );
+
+CREATE TABLE widget(
+    widget_id VARCHAR(255) PRIMARY KEY,
+    widget_name VARCHAR(100) NOT NULL,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    created_by VARCHAR(255), 
+    updated_by VARCHAR(255)
+);

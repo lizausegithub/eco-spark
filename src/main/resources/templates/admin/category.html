@@ -28,11 +28,13 @@
                 <tr data-th-each="category :${categories}">
                     <td data-th-text="${category.categoryTitle}"></td>
                     <td data-th-text="${category.categoryDescription}"></td>
-                    <td></td>
+                    <td>
+                        <img data-th-src="|/admin/image/${category.categoryId}|" alt="" style="width: 50px;">
+                    </td>
                     <td data-th-text="${category.categoryStatus}"></td>
                     <td>
-                        <a data-th-href="|/admin/edit?id=${category.categoryId}|">edit</a>
-                        <a data-th-href="|/admin/delete?id=${category.categoryId}|">delete</a>
+                        <a data-th-href="|/admin/edit?id=${category.categoryId}|"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a data-th-href="|/admin/delete?id=${category.categoryId}|"><i class="fa-solid fa-trash"></i></a>
                     </td>
 
 
@@ -46,7 +48,7 @@
                 <span class="close" id="modal-close-btn" onclick="closeModal()">&times;</span>
                 <h3>Add Category</h3>
 
-                <form action="/admin/category" id="categoryForm" method="post">
+                <form action="/admin/category" id="categoryForm" method="post" enctype="multipart/form-data">
                     <label for="categoryName">Category Name:</label>
                     <input type="text" id="categoryName" name="categoryTitle">
 
@@ -54,7 +56,7 @@
                     <input type="text" id="categoryDesc" name="categoryDescription">
 
                     <label for="categoryImage">Category Image:</label>
-                    <input type="file" id="categoryImage" name="categoryImageUrl">
+                    <input type="file" id="categoryImage" name="categoryImage" accept="Image/*">
 
                     <label for="categoryStatus">Category Status:</label>
                     <select id="categoryStatus">
