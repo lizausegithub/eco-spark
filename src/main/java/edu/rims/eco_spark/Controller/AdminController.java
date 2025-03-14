@@ -81,9 +81,14 @@ public class AdminController {
     }
 
     @PostMapping("/product")
-    public String productAdd(@ModelAttribute Product product, @RequestParam String categoryId) {
+    public String productAdd(@ModelAttribute Product product, @RequestParam String categoryId,
+            @RequestParam("productImage") MultipartFile file) throws Exception {
         Category category = categoryRepository.findById(categoryId).orElseThrow();
         product.setCategory(category);
+        if (!file.isEmpty()) {
+            String fileName = categoryService.ImageUpload(file);
+            product.setProductImageUrl(fileName);
+        }
         productRepository.save(product);
         return "redirect:/admin/product";
     }
@@ -113,7 +118,8 @@ public class AdminController {
     }
 
     @PostMapping("/widget/add")
-    public String postMethodName(@RequestParam String widgetName, @RequestParam String widgetId, @RequestParam int sequence) {
+    public String postMethodName(@RequestParam String widgetName, @RequestParam String widgetId,
+            @RequestParam int sequence) {
         Widget widget = widgetRepository.findById(widgetId).orElse(new Widget());
         widget.setWidgetName(widgetName);
         widget.setSequence(sequence);
@@ -149,6 +155,19 @@ public class AdminController {
         }
         FileInputStream fis = new FileInputStream(categoryImageUrl);
 
+        return fis.readAllBytes();
+    }
+
+    @GetMapping(value = "/productimage/{productId}", produces = { "image/jpg", "image/jpeg", "image/png" })
+    @ResponseBody
+    public byte[] getProductImage(@PathVariable String productId) throws IOException {
+
+        Product product = productRepository.findById(productId).orElseThrow();
+        String productImageUrl = product.getProductImageUrl();
+        if (productImageUrl == null || productImageUrl.startsWith("http")) {
+            return null;
+        }
+        FileInputStream fis = new FileInputStream(productImageUrl);
         return fis.readAllBytes();
     }
 
@@ -200,7 +219,7 @@ public class AdminController {
     @GetMapping("/widget/product/remove")
     public String getMethodName(@RequestParam String widgetId, @RequestParam String productId) {
         Widget widget = widgetRepository.findById(widgetId).orElseThrow();
-        
+
         widget.removeProduct(productId);
 
         widgetRepository.save(widget);

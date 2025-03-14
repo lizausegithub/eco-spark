@@ -39,7 +39,7 @@
         <article class="product" data-th-each="item : ${category.products}">
           <a data-th-href="|/product/product/pdp?product=${item.productId}|">
             <div class="img-container">
-              <img src="/images/chargers1.jpeg" alt="img">
+              <img class="image" data-th-src="|/admin/productimage/${item.productId}|" alt="">
             </div>
             <div class="product-title">
               <h4 data-th-text="${item.productTitle}"></h4>
