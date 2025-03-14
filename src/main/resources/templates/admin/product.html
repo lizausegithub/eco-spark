@@ -18,7 +18,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Product Id</th>
+                    <!-- <th>Product Id</th> -->
                     <th>Category Name</th>
                     <th>Product Name</th>
                     <th>Product Description</th>
@@ -31,15 +31,17 @@
             <tbody id="productTable">
 
                 <tr data-th-each="item : ${products}">
-                    <td data-th-text="${item.productId}"></td>
                     <td data-th-text="${item.category.categoryTitle}"></td>
                     <td data-th-text="${item.productTitle}"></td>
                     <td data-th-text="${item.productDescription}"></td>
-                    <td></td>
+                    <td>
+                        <img data-th-src="|/admin/productimage/${item.productId}|" alt="" style="width: 50px;">
+                    </td>
                     <td data-th-text="${item.productPrice}"></td>
                     <td data-th-text="${item.productStock}"></td>
                     <td>
-                        <a data-th-href="|/admin/edit?id=${item.productId}|"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a data-th-href="|/admin/edit?id=${item.productId}|"><i
+                                class="fa-solid fa-pen-to-square"></i></a>
                         <a data-th-href="|/admin/delete?id=${item.productId}|"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
@@ -52,12 +54,13 @@
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
 
-                <form action="/admin/product" id="product" method="post">
+                <form action="/admin/product" id="product" method="post" enctype="multipart/form-data">
                     <h3>Add Product</h3>
 
                     <label> Category Name:
                         <select name="categoryId" id="categoryName">
-                            <option data-th-each="category : ${categories}" data-th-text="${category.categoryTitle}" data-th-value="${category.categoryId}">
+                            <option data-th-each="category : ${categories}" data-th-text="${category.categoryTitle}"
+                                data-th-value="${category.categoryId}">
                             </option>
                         </select>
                     </label>
@@ -69,7 +72,7 @@
                     <input type="text" id="productDesc" name="productDescription">
 
                     <label for="productImage">Product Image:</label>
-                    <input type="file" id="productImage" name="productImageUrl">
+                    <input type="file" id="productImage" name="productImage" accept="Image/*">
 
                     <label for="productPrice">Price:</label>
                     <input type="text" id="productPrice" name="productPrice">
@@ -77,7 +80,7 @@
                     <label for="productStock">Stock:</label>
                     <input type="text" id="productStock" name="productStock">
 
-                    <button class="save-btn" onclick="saveProduct()">Save</button>
+                    <input type="submit" class="save-btn" value="submit">
                 </form>
             </div>
         </div>

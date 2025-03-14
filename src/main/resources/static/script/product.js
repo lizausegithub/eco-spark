@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    loadProducts();
+    // loadProducts();
 });
 
 // function loadProducts() {
@@ -42,37 +42,40 @@ function closeModal() {
     document.getElementById("productModal").style.display = "none";
 }
 
-function saveProduct(e) {
-    e.preventDefault();
-    let name = document.getElementById("productName").value;
-    let desc = document.getElementById("productDesc").value;
-    let image = document.getElementById("productImage").files[0]?.name || "📷";
-    let price = document.getElementById("productPrice").value;
-    let stock = document.getElementById("productStock").value;
+// function saveProduct(e) {
+//     e.preventDefault();
+//     let categoryname = document.getElementById("categoryName").value;
+//     let name = document.getElementById("productName").value;
+//     let desc = document.getElementById("productDesc").value;
+//     let image = document.getElementById("productImage").files[0]?.name || "📷";
+//     let price = document.getElementById("productPrice").value;
+//     let stock = document.getElementById("productStock").value;
 
-    if (name.trim() === "" || desc.trim() === "" || price.trim() === "" || stock.trim() === "") {
-        alert("Please fill in all fields.");
-        return;
-    }
+//     if (name.trim() === "" || desc.trim() === "" || price.trim() === "" || stock.trim() === "") {
+//         alert("Please fill in all fields.");
+//         return;
+//     }
 
-    let table = document.getElementById("productTable");
-    let row = `<tr>
-        <td>${name}</td>
-        <td>${desc}</td>
-        <td>${image}</td>
-        <td>${price}</td>
-        <td>${stock}</td>
-        <td>
-            <button onclick="editProduct()">✏️ Edit</button>
-            <button onclick="deleteProduct()" style="color:red;">🗑️ Delete</button>
-        </td>
-    </tr>`;
+//     let table = document.getElementById("productTable");
+//     let row = `<tr>
 
-    table.innerHTML += row;
-    closeModal();
-}
+//         <td>${categoryname}</td>
+//         <td>${name}</td>
+//         <td>${desc}</td>
+//         <td>${image}</td>
+//         <td>${price}</td>
+//         <td>${stock}</td>
+//         // <td>
+//         //     <button onclick="editProduct()">✏️ Edit</button>
+//         //     <button onclick="deleteProduct()" style="color:red;">🗑️ Delete</button>
+//         // </td>
+//     </tr>`;
 
-document.getElementById("product").addEventListener("submit", saveProduct); 
+//     table.innerHTML += row;
+//     closeModal();
+// }
+
+document.getElementById("product").addEventListener("submit", saveProduct);
 
 function editProduct(index) {
     alert("Edit Product " + index);
