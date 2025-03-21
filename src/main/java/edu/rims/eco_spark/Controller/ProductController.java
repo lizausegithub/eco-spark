@@ -1,5 +1,7 @@
 package edu.rims.eco_spark.Controller;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,9 @@ import edu.rims.eco_spark.repository.CategoryRepository;
 import edu.rims.eco_spark.repository.ProductRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/product")
@@ -33,7 +37,7 @@ public class ProductController {
         return "product/home";
     }
 
-    @GetMapping("/pdp") 
+    @GetMapping("/pdp")
     String pdp() {
         return "product/pdp";
     }
@@ -50,6 +54,30 @@ public class ProductController {
         List<Product> products = ProductRepository.findByProductTitleContainingIgnoreCase(productTitle);
         model.addAttribute("products", products);
         return "product/home";
+    }
+
+    @GetMapping(value = "/image/{categoryId}", produces = { "image/jpg", "image/png", "image/jpeg" })
+    @ResponseBody
+    byte[] getCategoryImage(@PathVariable String categoryId) throws IOException {
+        Category category = categoryRepository.findById(categoryId).orElseThrow();
+        String categoryImageUrl = category.getCategoryImageUrl();
+        if (categoryImageUrl != null && categoryImageUrl.startsWith("http")) {
+            return null;
+        }
+        FileInputStream fis = new FileInputStream(categoryImageUrl);
+        return fis.readAllBytes();
+    }
+
+    @GetMapping(value = "productimage/{productId}", produces = { "image/jpg", "image/png", "image/jpeg" })
+    @ResponseBody
+    byte[] getProductImage(@PathVariable String productId) throws IOException {
+        Product product = ProductRepository.findById(productId).orElseThrow();
+        String productImageUrl = product.getProductImageUrl();
+        if (productImageUrl != null && productImageUrl.startsWith("http")) {
+            return null;
+        }
+        FileInputStream fis = new FileInputStream(productImageUrl);
+        return fis.readAllBytes();
     }
 
 }

@@ -13,10 +13,12 @@
 
 <body>
     <div class="wrapper">
-        <div class="left">
+        <div class="left">   
             <h1>Login</h1>
-            <input type="text" placeholder="Username" />
-            <input type="password" placeholder="Password" />
+
+      <form action="/logIn/home" method="post">      
+            <input type="text" placeholder="Username" name="username" />
+            <input type="password" placeholder="Password" name="password"/>
             <div class="rm-fg">
                 <div class="rm">
                     <input type="checkbox" />
@@ -24,7 +26,9 @@
                 </div>
                 <p class="password">Forgot Password?</p>
             </div>
+            <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
             <button><a href="/customer/home">Login</a></button>
+        </form>    
         </div>
 
         <div class="right">

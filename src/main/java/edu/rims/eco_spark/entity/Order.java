@@ -30,8 +30,18 @@ public class Order extends Auditable {
     private OrderStatus orderStatus = OrderStatus.PENDING;
 
     @OneToMany(mappedBy = "order")
-    private List<OrderItem> orders;
+    private List<OrderItem> orderItems;
 
     @OneToMany(mappedBy = "order")
     private List<Payment> payments;
+
+    public void addOrderItem(OrderItem orderItem) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addOrderItem'");
+    }
+
+    public void removeOrderItem(String orderItemId) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'removeOrderItem'");
+    }
 }
