@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // loadProducts();
+  // loadProducts();
 });
 
 // function loadProducts() {
@@ -25,21 +25,42 @@ document.addEventListener("DOMContentLoaded", function () {
 // }
 
 function searchProduct() {
-    let input = document.getElementById("searchBox").value.toLowerCase();
-    let rows = document.querySelectorAll("#productTable tr");
+  let input = document.getElementById("searchBox").value.toLowerCase();
+  let rows = document.querySelectorAll("#productTable tr");
 
-    rows.forEach(row => {
-        let text = row.innerText.toLowerCase();
-        row.style.display = text.includes(input) ? "" : "none";
-    });
+  rows.forEach(row => {
+    let text = row.innerText.toLowerCase();
+    row.style.display = text.includes(input) ? "" : "none";
+  });
 }
 
-function openModal() {
-    document.getElementById("productModal").style.display = "flex";
+let editIndex = null;
+
+async function openModal(productId = null) {
+  document.getElementById("productModal").style.display = "block";
+  if (productId) {
+    const response = await fetch(`/admin/products/${productId}`).catch((err) =>
+      console.error(err)
+    );
+
+    const product = await response.json();
+    updateFields(product);
+  }
+}
+
+function updateFields(product) {
+  document.getElementById('categoryName').value = product.category.categoryId;
+  document.getElementById('productName').value = product.productTitle;
+  document.getElementById('productDesc').value = product.productDescription;
+  document.getElementById('imageUrl').value = product.productImageUrl;
+  document.getElementById('productPrice').value = product.productPrice;
+  document.getElementById('productStock').value = product.productStockQuantity;
+
+  document.getElementById('productId').value = product.productId;
 }
 
 function closeModal() {
-    document.getElementById("productModal").style.display = "none";
+  document.getElementById("productModal").style.display = "none";
 }
 
 // function saveProduct(e) {
@@ -75,12 +96,12 @@ function closeModal() {
 //     closeModal();
 // }
 
-document.getElementById("product").addEventListener("submit", saveProduct);
+// document.getElementById("product").addEventListener("submit", saveProduct);
 
 function editProduct(index) {
-    alert("Edit Product " + index);
+  alert("Edit Product " + index);
 }
 
 function deleteProduct(index) {
-    alert("Delete Product " + index);
+  alert("Delete Product " + index);
 }

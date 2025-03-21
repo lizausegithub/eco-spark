@@ -40,9 +40,9 @@
                     <td data-th-text="${item.productPrice}"></td>
                     <td data-th-text="${item.productStock}"></td>
                     <td>
-                        <a data-th-href="|/admin/edit?id=${item.productId}|"><i
-                                class="fa-solid fa-pen-to-square"></i></a>
-                        <a data-th-href="|/admin/delete?id=${item.productId}|"><i class="fa-solid fa-trash"></i></a>
+                        <button class="edit-btn" data-th-onclick="openModal([[${item.productId}]])"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <a data-th-href="|/admin/product/remove?product=${item.productId}|"
+                                    class="delete-btn"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
 
@@ -81,6 +81,10 @@
                     <input type="text" id="productStock" name="productStock">
 
                     <input type="submit" class="save-btn" value="submit">
+
+                    <input type="hidden" name="imageUrl" id="imageUrl">
+                    <input type="hidden" name="productId" id="productId">
+                    <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
                 </form>
             </div>
         </div>

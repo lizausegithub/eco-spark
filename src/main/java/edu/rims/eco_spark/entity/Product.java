@@ -38,7 +38,7 @@ public class Product extends Auditable {
     private Integer productStock = 0;
 
     @OneToMany(mappedBy = "product")
-    private List<OrderItem> orders;
+    private List<OrderItem> orderItems;
 
     @OneToMany(mappedBy = "product")
     private List<Wishlist> wishlists;

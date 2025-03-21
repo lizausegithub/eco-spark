@@ -18,10 +18,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.rims.eco_spark.constant.WidgetStatus;
+import edu.rims.eco_spark.dto.ProductResponseDTO;
+import edu.rims.eco_spark.dto.ProductResponseDTO.CategoryResponse;
 import edu.rims.eco_spark.entity.Category;
+import edu.rims.eco_spark.entity.Order;
 import edu.rims.eco_spark.entity.Product;
 import edu.rims.eco_spark.entity.Widget;
 import edu.rims.eco_spark.repository.CategoryRepository;
+import edu.rims.eco_spark.repository.OrderRepository;
 import edu.rims.eco_spark.repository.ProductRepository;
 import edu.rims.eco_spark.repository.WidgetRepository;
 import edu.rims.eco_spark.service.CategoryService;
@@ -45,6 +49,9 @@ public class AdminController {
 
     @Autowired
     private WidgetRepository widgetRepository;
+
+    @Autowired
+    private OrderRepository orderRepository;
 
     @GetMapping("/dashboard")
     String dashborad() {
@@ -82,13 +89,31 @@ public class AdminController {
 
     @PostMapping("/product")
     public String productAdd(@ModelAttribute Product product, @RequestParam String categoryId,
-            @RequestParam("productImage") MultipartFile file) throws Exception {
+            @RequestParam(value = "productImage", required = false) MultipartFile file,
+            @RequestParam(required = false) String imageUrl)
+            throws Exception {
         Category category = categoryRepository.findById(categoryId).orElseThrow();
         product.setCategory(category);
-        if (!file.isEmpty()) {
+
+        if (imageUrl != null) {
+            product.setProductImageUrl(imageUrl);
+        }
+
+        if (file != null && !file.isEmpty()) {
             String fileName = categoryService.ImageUpload(file);
             product.setProductImageUrl(fileName);
         }
+
+        product.setCreatedDate(LocalDateTime.now());
+        product.setUpdatedDate(LocalDateTime.now());
+
+        productRepository.save(product);
+        return "redirect:/admin/product";
+    }
+
+    @GetMapping("/product/remove")
+    public String removeProduct(@RequestParam("product") String productId) {
+        Product product = productRepository.findById(productId).orElseThrow();
         productRepository.save(product);
         return "redirect:/admin/product";
     }
@@ -102,7 +127,9 @@ public class AdminController {
     }
 
     @GetMapping("/order")
-    String adminOrder() {
+    String adminOrder(Model model) {
+        List<Order> orders = orderRepository.findAll();
+        model.addAttribute("orders", orders);
         return "admin/order";
     }
 
@@ -224,6 +251,26 @@ public class AdminController {
 
         widgetRepository.save(widget);
         return "redirect:/admin/widget";
+    }
+
+    @GetMapping("/products/{productId}")
+    @ResponseBody
+    public ProductResponseDTO getProduct(@PathVariable String productId) {
+        Product product = productRepository.findById(productId).orElseThrow();
+        ProductResponseDTO dto = new ProductResponseDTO();
+        dto.setProductId(productId);
+        dto.setProductTitle(product.getProductTitle());
+        dto.setProductDescription(product.getProductDescription());
+        dto.setProductPrice(product.getProductPrice());
+        dto.setProductStockQuantity(product.getProductStock());
+        dto.setProductImageUrl(product.getProductImageUrl());
+
+        CategoryResponse category = dto.new CategoryResponse();
+        category.setCategoryId(product.getCategory().getCategoryId());
+        category.setCategoryTitle(product.getCategory().getCategoryTitle());
+        dto.setCategory(category);
+
+        return dto;
     }
 
 }

@@ -61,10 +61,15 @@
             </ul>
 
             <ul class="logout-mode">
-                <li><a href="#">
-                        <i class="uil uil-signout"></i>
-                        <span class="link-name">Logout</span>
-                    </a></li>
+                <li>
+                    <form method="post" action="/logout">
+                        <button type="submit">
+                            <i class="uil uil-signout"></i>
+                            <span>Logout</span>
+                        </button>
+                        <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
+                    </form>
+                </li>
                 <li class="mode">
                     <a href="#">
                         <i class="uil uil-moon"></i>

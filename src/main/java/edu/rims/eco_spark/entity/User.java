@@ -2,6 +2,7 @@ package edu.rims.eco_spark.entity;
 
 import java.util.List;
 
+import edu.rims.eco_spark.constant.UserRole;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -43,4 +44,7 @@ public class User extends Auditable {
 
     @OneToMany(mappedBy = "user")
     private List<Review> reviews;
+
+    @Enumerated(EnumType.STRING)
+    private UserRole userRole;
 }
