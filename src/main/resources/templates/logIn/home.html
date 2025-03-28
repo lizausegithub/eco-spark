@@ -15,6 +15,7 @@
     <div class="wrapper">
         <div class="left">   
             <h1>Login</h1>
+            <h2 data-th-if="${param.error}!= null">Invalid Username/password</h2>
 
       <form action="/logIn/home" method="post">      
             <input type="text" placeholder="Username" name="username" />
@@ -27,7 +28,7 @@
                 <p class="password">Forgot Password?</p>
             </div>
             <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
-            <button><a href="/customer/home">Login</a></button>
+            <button type="submit">Login</button>
         </form>    
         </div>
 

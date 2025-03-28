@@ -15,11 +15,11 @@
         <div class="order-list">
             <h2>Your Orders</h2>
             <ul id="order-history">
-                <li class="order-item">
-                    <h3>Order-item</h3>
+                <li class="order-item" data-th-each="order : ${orders}">
+                    <h3 data-th-text="|Order Id: ${order.orderId}|"></h3>
                     <div class="order-details">
-                        <p>Total: &#8377;549</p>
-                        <p>Status: UNDELIVERED</p>
+                        <p data-th-utext="|<strong>Total:</strong> &#8377;${order.totalPrice}|"></p>
+                        <p data-th-utext="|<strong>Status:</strong> ${order.orderStatus}|"></p>
                     </div>
                     <button>View</button>
                 </li>

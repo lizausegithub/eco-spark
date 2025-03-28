@@ -21,6 +21,7 @@
                     data-th-value="${widget != null ? widget.widgetName : ''}">
                 <input type="text" placeholder="sequence id" name="sequence" data-th-value="${widget != null ? widget.sequence: ''}">
                 <input type="hidden" name="widgetId" data-th-value="${widget != null ? widget.widgetId : ''}">
+                <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
                 <input type="submit">
             </form>
         </div>
@@ -74,6 +75,7 @@
                         <div class="text-center">
                             <input type="submit" value="Upload">
                         </div>
+                        <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
                     </form>
                 </div>
 
