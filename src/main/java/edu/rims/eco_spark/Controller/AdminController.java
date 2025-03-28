@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import edu.rims.eco_spark.constant.CategoryStatus;
 import edu.rims.eco_spark.constant.WidgetStatus;
+import edu.rims.eco_spark.dto.CategoryResponseDTO;
 import edu.rims.eco_spark.dto.ProductResponseDTO;
 import edu.rims.eco_spark.dto.ProductResponseDTO.CategoryResponse;
 import edu.rims.eco_spark.entity.Category;
@@ -66,6 +68,14 @@ public class AdminController {
         return "admin/category";
     }
 
+    @GetMapping("/category/remove")
+    public String removecategory(@RequestParam("id") String categoryId) {
+        Category category = categoryRepository.findById(categoryId).orElseThrow();
+        category.setCategoryStatus(CategoryStatus.INACTIVE);
+        categoryRepository.save(category);
+        return "redirect:/admin/category";
+    }
+
     @PostMapping("/category")
     public String categoryAdd(@ModelAttribute Category category, @RequestParam("categoryImage") MultipartFile file)
             throws Exception {
@@ -74,6 +84,10 @@ public class AdminController {
             String fileName = categoryService.ImageUpload(file);
             category.setCategoryImageUrl(fileName);
         }
+
+        category.setCreatedDate(LocalDateTime.now());
+        category.setUpdatedDate(LocalDateTime.now());
+
         categoryRepository.save(category);
         return "redirect:/admin/category";
     }
@@ -270,6 +284,19 @@ public class AdminController {
         category.setCategoryTitle(product.getCategory().getCategoryTitle());
         dto.setCategory(category);
 
+        return dto;
+    }
+
+    @GetMapping("/categories/{categoryId}")
+    @ResponseBody
+    public CategoryResponseDTO getCategory(@PathVariable String categoryId) {
+        Category category = categoryRepository.findById(categoryId).orElseThrow();
+        CategoryResponseDTO dto = new CategoryResponseDTO();
+        dto.setCategoryId(categoryId);
+        dto.setCategoryTitle(category.getCategoryTitle());
+        dto.setCategoryDescription(category.getCategoryDescription());
+        dto.setCategoryImageUrl(category.getCategoryImageUrl());
+        dto.setCategoryStatus(category.getCategoryStatus().toString());
         return dto;
     }
 

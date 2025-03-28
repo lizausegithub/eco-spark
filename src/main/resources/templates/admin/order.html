@@ -26,62 +26,31 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>446</td>
-                    <td>5/11/2024</td>
-                    <td>Ishita</td>
-                    <td>Rourkela</td>
-                    <td>Solar Panel</td>
-                    <td>1</td>
+                <tr data-th-each="order : ${orders}">
+                    <td data-th-text="${order.orderId}"></td>
+                    <td data-th-text="${order.user.userName}"></td>
+                    <td data-th-text="${order.user.userAddress}"></td>
                     <td>
-                        <p class="status-delivered">Delivered</p>
+                        <ul>
+                            <li data-th-each="item : ${order.orderItems}">
+                                <span data-th-text="${item.Product.productTitle}"></span>
+                            </li>
+                        </ul>
                     </td>
-                    <td><strong>&#8377;12000.00</strong></td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>445</td>
-                    <td>5/11/2024</td>
-                    <td>Ishita</td>
-                    <td>Rourkela</td>
-                    <td>Solar Panel</td>
-                    <td>1</td>
                     <td>
-                        <p class="status-delivered">Delivered</p>
+                        <ul>
+                            <li data-th-each="item : ${order.orderItems}">
+                                <span data-th-text="${item.orderItemQuantity}"></span>
+                            </li>
+                        </ul>
                     </td>
-                    <td><strong>&#8377;12000.00</strong></td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>446</td>
-                    <td>5/11/2024</td>
-                    <td>Ishita</td>
-                    <td>Rourkela</td>
-                    <td>Solar Panel</td>
-                    <td>1</td>
                     <td>
-                        <p class="status-delivered">Delivered</p>
+                        <p class="status" data-th-class="'status ' + ${order.orderStatus.name().toLowerCase()}">
+                        </p>
+                        <span data-th-text="${order.orderStatus}"></span>
+                        </p>
                     </td>
-                    <td><strong>&#8377;12000.00</strong></td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>446</td>
-                    <td>5/11/2024</td>
-                    <td>Ishita</td>
-                    <td>Rourkela</td>
-                    <td>Solar Panel</td>
-                    <td>1</td>
-                    <td>
-                        <p class="status-delivered">Delivered</p>
-                    </td>
-                    <td><strong>&#8377;12000.00</strong></td>
+                    <td><strong data-th-text="'₹' + ${order.orderTotalPrice}"></strong></td>
                 </tr>
             </tbody>
 

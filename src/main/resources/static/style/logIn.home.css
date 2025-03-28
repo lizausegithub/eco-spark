@@ -44,6 +44,13 @@ html {
     font-size: 7vw;
 }
 
+.left h2 {
+    font-size: 1.2rem;
+    color: red;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
 .left input {
     width: 60%;
     height: 50px;
@@ -68,6 +75,8 @@ html {
     display: flex;
     width: 60%;
     justify-content: space-between;
+    gap: 5rem;
+    margin-top: 1rem;
 }
 
 .rm-fg .password {
@@ -106,6 +115,8 @@ html {
     background-color: var(--neutral);
     font-size: 16px;
     color: #fff;
+    margin-left: 3rem;
+    margin-top: 1rem;
 }
 
 .left button a {

@@ -43,10 +43,10 @@
       <i class="fa-regular fa-heart" title="Wishlist"></i>
       <a href="/logIn/home"><i class="fa-regular fa-user" title="Login"></i></a>
       <a href="/product/cart"><i class="fa-solid fa-cart-flatbed" title="Cart"></i></a>
-      <form method="post" action="/logout" data-sec-authorize="isAuthenticated()">
-        <a href="/admin/dashboard" style="all: unset;"><i class="fa-solid fa-gauge-high"></i></a>
-        <button type="submit">
-            <span>Logout</span>
+      <a href="/admin/dashboard" style="all: unset;" data-sec-authorize="hasRole('ADMIN')"><i class="fa-solid fa-gauge-high"></i></a>
+      <form method="post" action="/logout" data-sec-authorize="isAuthenticated()">        
+        <button type="submit" style="all: unset;">
+            <span><i class="fa-solid fa-arrow-right-from-bracket" title="logout"></i></span>
         </button>
         <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
     </form>

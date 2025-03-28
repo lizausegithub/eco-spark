@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.hibernate.annotations.Generated;
 
 import edu.rims.eco_spark.constant.OrderStatus;
 
@@ -16,6 +19,7 @@ public class Order extends Auditable {
 
     @Id
     @Column(name = "product_order_id", nullable = false, length = 255)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String orderId;
 
     @ManyToOne
@@ -27,21 +31,57 @@ public class Order extends Auditable {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "product_order_status")
-    private OrderStatus orderStatus = OrderStatus.PENDING;
+    private OrderStatus orderStatus = OrderStatus.CART;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems;
 
     @OneToMany(mappedBy = "order")
     private List<Payment> payments;
 
-    public void addOrderItem(OrderItem orderItem) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addOrderItem'");
+    public boolean addOrderItem(OrderItem orderItem) {
+        if (orderItems == null) {
+            orderItems = new ArrayList<>();
+        }
+
+        if (itemExists(orderItem.getProduct().getProductId())) {
+            return false;
+        }
+
+        orderItem.setOrder(this);
+        orderItems.add(orderItem);
+        updateDetails();
+        return true;
     }
 
-    public void removeOrderItem(String orderItemId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeOrderItem'");
+    private void updateDetails() {
+        int totalQuantity = 0;
+        double totalPrice = 0;
+        for (OrderItem orderItem : orderItems) {
+            totalQuantity += orderItem.getOrderItemQuantity();
+            totalPrice += orderItem.getOrderItemPrice();
+        }
+        this.orderTotalPrice = totalPrice;
+        // orderQuantity = totalQuantity;
+    }
+
+    private boolean itemExists(String itemId) {
+        for (OrderItem orderItem : orderItems) {
+            if (itemId.equals(orderItem.getProduct().getProductId())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void removeOrderItem(String ordertItemId) {
+        for (OrderItem orderItem : orderItems) {
+            if (orderItem.getOrderItemId().equals(ordertItemId)) {
+                orderItem.setOrder(null);
+                orderItems.remove(orderItem);
+                break;
+            }
+        }
+        updateDetails();
     }
 }
