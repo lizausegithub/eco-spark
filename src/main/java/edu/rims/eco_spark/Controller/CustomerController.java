@@ -14,13 +14,14 @@ import edu.rims.eco_spark.entity.Category;
 import edu.rims.eco_spark.entity.Widget;
 import edu.rims.eco_spark.repository.CategoryRepository;
 import edu.rims.eco_spark.repository.WidgetRepository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
     @Autowired
     private CategoryRepository categoryRepository;
-    
+
     @Autowired
     private WidgetRepository widgetRepository;
 
@@ -32,4 +33,10 @@ public class CustomerController {
         model.addAttribute("widgets", widgetRepository.findByWidgetStatus(WidgetStatus.ACTIVE, Sort.by("sequence")));
         return "customer/home";
     }
+
+    @GetMapping({ "/contact" })
+    String contact() {
+        return "customer/contact";
+    }
+
 }
