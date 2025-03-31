@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="/images/short-logo.png">
   <title>Ecospark-Green technology store</title>
   <link rel="stylesheet" href="/style/base.css" />
   <link rel="stylesheet" href="/style/customer.header.css" />
@@ -27,7 +28,7 @@
           <a data-th-href="|/product/category/home?category=${category.categoryId}|"
             data-th-each="category : ${categories}">
             <span data-th-text="${category.categoryTitle}"></span>
-            <i class="fa-solid fa-greater-than"></i></a>
+          </a>
         </div>
       </div>
 
@@ -60,7 +61,7 @@
         <li><a href="#">Shop</a></li>
         <li><a href="#">New Arrival</a></li>
         <li><a href="#">Sale</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="/customer/contact">Contact Us</a></li>
         <li><a href="#">Blogs</a></li>
         <li><a href="#">Pages</a></li>
       </ul>
@@ -100,7 +101,7 @@
           <li><a href="">Services</a></li>
           <li><a href="">About us</a></li>
           <li><a href="">Features</a></li>
-          <li><a href="">Contact</a></li>
+          <li><a href="/customer/contact">Contact</a></li>
         </ul>
       </div>
       <div class="col">
