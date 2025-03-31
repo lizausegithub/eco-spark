@@ -45,7 +45,7 @@
               <h4 data-th-text="${item.productTitle}"></h4>
             </div>
             <div class="product-action">
-              <a href="#">Add to cart</a>
+              <a data-th-href="|/product/cart/add?productId=${item.productId}|">Add to cart</a>
             </div>
           </a>
         </article>

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.rims.eco_spark.constant.WidgetStatus;
 import edu.rims.eco_spark.entity.Category;
-import edu.rims.eco_spark.entity.Widget;
 import edu.rims.eco_spark.repository.CategoryRepository;
 import edu.rims.eco_spark.repository.WidgetRepository;
 import org.springframework.web.bind.annotation.RequestParam;

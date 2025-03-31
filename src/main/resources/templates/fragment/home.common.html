@@ -15,7 +15,7 @@
             <div class="product" th:each="product : ${products}">
                 <img src="/images/chargers1.jpeg" alt="Solar Panel" height="250px" />
                 <h3 th:text="${product.productTitle}"></h3>
-                <button>Shop Now</button>
+                <a data-th-href="|/product/product/pdp?product=${product.productId}|">Shop Now</a>
             </div>
         </div>
     </section>
@@ -35,7 +35,7 @@
                     <span class="old-price">&#8377;88,499.00</span>
                     <span class="new-price">&#8377;62,000.00</span>
                 </p>
-                <button>Quick Shop</button>
+                <a data-th-href="|/product/product/pdp?product=${product.productId}|"> Quick Shop</a>
             </div>
         </div>
     </div>

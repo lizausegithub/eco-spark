@@ -76,6 +76,10 @@
     max-height: 350px;
 }
 
+.related-products h3{
+    margin-top: 50px;
+}
+
 .product img {
     width: 100%;
     aspect-ratio: 2 2;

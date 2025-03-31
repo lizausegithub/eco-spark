@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-th-replace="~{fragment/common :: head }"></head>
+
+<body>
+    <link rel="stylesheet" href="/style/customer.orderHistory.css">
+
+    <header data-th-replace="~{fragment/common :: header}"></header>
+    <div class="container">
+        <header>
+            <h1>Order History</h1>
+        </header>
+
+        <div class="order-list">
+            <h2>Your Orders</h2>
+            <ul id="order-history">
+                <li class="order-item" data-th-each="order : ${orders}">
+                    <h3 data-th-text="|Order Id: ${order.orderId}|"></h3>
+                    <div class="order-details">
+                        <p data-th-utext="|<strong>Total:</strong> &#8377;${order.totalPrice}|"></p>
+                        <p data-th-utext="|<strong>Status:</strong> ${order.orderStatus}|"></p>
+                    </div>
+                    <button>View</button>
+                </li>
+            </ul>
+        </div>
+        <div class="home"><a href="/customer/home" class="home-button">Home</a></div>
+    </div>
+</body>
+
+</html>
