@@ -43,7 +43,7 @@ public class ProductController {
     }
 
     @GetMapping("/product/pdp")
-    String getProductByFoodId(@RequestParam("product") String productId, Model model) {
+    String getProductByProductId(@RequestParam("product") String productId, Model model) {
         Product product = ProductRepository.findById(productId).orElseThrow();
         model.addAttribute("product", product);
         return "product/pdp";

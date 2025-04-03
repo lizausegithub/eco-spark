@@ -3,7 +3,7 @@
   display: none;
 }
 
-.btn-cart i {
+.sltn-cart i {
   border: none;
   color: black;
   height: 10px;
@@ -20,7 +20,7 @@
   position: relative;
 }
 
-.slider-container > button {
+.slider-container>button {
   position: absolute;
   z-index: 1;
   padding: 1rem 1.5rem;
@@ -35,9 +35,10 @@
   transform: translateY(-50%);
   transition: filter 0.3s ease-in-out, background 0.3s ease-in-out;
   backdrop-filter: blur(8px);
+  opacity: 0.5;
 }
 
-.slider-container > button:hover {
+.slider-container>button:hover {
   filter: blur(2px);
   background: rgba(0, 0, 0, 0.7);
 }
@@ -68,8 +69,8 @@
 
 .hero figure figcaption {
   position: absolute;
-  top: 40%;
-  left: 50%;
+  top: 15%;
+  left: 40%;
   translate: -50%;
   color: white;
   font-size: 3rem;
@@ -95,7 +96,7 @@
   text-align: center;
 }
 
-.btn-primary {
+/* .btn-primary {
   background-color: white;
   color: black;
   width: 70%;
@@ -116,7 +117,7 @@
 
 .btn-secondary:hover {
   background-color: #cceb1a;
-}
+} */
 
 .features {
   display: flex;

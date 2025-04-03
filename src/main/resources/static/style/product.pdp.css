@@ -20,6 +20,8 @@
     padding: 20px;
     background: white;
     gap: 1.5rem;
+    overflow: scroll;
+
 }
 
 .product-images {
