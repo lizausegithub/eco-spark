@@ -41,8 +41,7 @@
                     <td data-th-text="${item.productStock}"></td>
                     <td>
                         <button class="edit-btn" data-th-onclick="openModal([[${item.productId}]])"><i class="fa-solid fa-pen-to-square"></i></button>
-                        <a data-th-href="|/admin/product/remove?product=${item.productId}|"
-                                    class="delete-btn"><i class="fa-solid fa-trash"></i></a>
+                        <a data-th-href="|/admin/product/remove?product=${item.productId}|"class="delete-btn"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
 

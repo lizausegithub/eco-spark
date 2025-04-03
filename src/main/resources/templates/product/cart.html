@@ -28,7 +28,7 @@
                                 <div class="product" data-th-each="item : ${order.orderItems}">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img class="img-fluid mx-auto d-block image" src="/images/smartplugs6.jpg">
+                                            <img data-th-src="|/admin/productimage/${item.product.productId}|" height="200">
                                         </div>
                                         <div class="col-md-8">
                                             <div class="info">
@@ -37,9 +37,7 @@
                                                         <div class="product-name">
                                                             <a href="#" data-th-text="${item.product.productTitle}"></a>
                                                             <div class="product-info">
-                                                                <div>Display: <span class="value">5 inch</span></div>
-                                                                <div>RAM: <span class="value">4GB</span></div>
-                                                                <div>Memory: <span class="value">32GB</span></div>
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>

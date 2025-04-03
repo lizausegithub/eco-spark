@@ -85,6 +85,8 @@ public class AdminController {
             category.setCategoryImageUrl(fileName);
         }
 
+        String categoryId = category.getCategoryId();
+        category.setCategoryId(categoryId.isEmpty()? null : categoryId);
         category.setCreatedDate(LocalDateTime.now());
         category.setUpdatedDate(LocalDateTime.now());
 
@@ -118,6 +120,8 @@ public class AdminController {
             product.setProductImageUrl(fileName);
         }
 
+        String productId = product.getProductId();
+        product.setProductId(productId.isEmpty() ? null : productId);
         product.setCreatedDate(LocalDateTime.now());
         product.setUpdatedDate(LocalDateTime.now());
 
