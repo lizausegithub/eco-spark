@@ -21,6 +21,7 @@
   <main>
     <aside class="filter-section">
       <!-- <input type="checkbox"> -->
+      <div class="category_filter">
       <label for="category-filter">Category:</label>
       <select id="category-filter">
         <option value="all">All</option>
@@ -28,6 +29,7 @@
         <option value="all">powerbanks</option>
         <option value="all">electric scooty</option>
       </select>
+    </div>
       <br>
       <label for="price-filter">Max-price:</label>
       <input type="number" id="price-filter" value="1000">
@@ -39,11 +41,20 @@
         <article class="product" data-th-each="item : ${category.products}">
           <a data-th-href="|/product/product/pdp?product=${item.productId}|">
             <div class="img-container">
-              <img class="image" data-th-src="|/admin/productimage/${item.productId}|" alt="">
+              <img class="image" data-th-src="|/admin/productimage/${item.productId}|" alt="" height="200">
             </div>
             <div class="product-title">
-              <h4 data-th-text="${item.productTitle}"></h4>
+              <h3 data-th-text="${item.productTitle}"></h3>
             </div>
+
+            <div class="product_description">
+              <p data-th-text="${item.productDescription}"></p>
+            </div>
+
+            <div class="product_price">
+              <h3 data-th-text="|&#8377; ${item.productPrice}|"></h3>
+            </div>
+
             <div class="product-action">
               <a data-th-href="|/product/cart/add?productId=${item.productId}|">Add to cart</a>
             </div>
@@ -64,13 +75,24 @@
       <div class="product-container">
         <article class="product" data-th-each="item : ${products}">
           <div class="img-container">
-            <img src="/images/chargers1.jpeg" alt="img">
+            <img data-th-src="|/admin/productimage/${item.productId}|" alt="img" height="200">
           </div>
+
           <div class="product-title">
             <h4 data-th-text="${item.productTitle}"></h4>
           </div>
-          <div class="product-action">
-            <a href="#">Add to cart</a>
+
+          <div class="product_description">
+            <p data-th-text="${item.productDescription}"></p>
+          </div>
+
+          <div class="product_price">
+            <h3 data-th-text="|&#8377; ${item.productPrice}|"></h3>
+          </div>
+
+
+          <div class="product-search">
+            <a data-th-href="|/product/cart/add?productId=${item.productId}|" alt="img">Add to cart</a>
           </div>
         </article>
 

@@ -3,6 +3,7 @@ package edu.rims.eco_spark.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.rims.eco_spark.constant.ProductStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -48,6 +49,10 @@ public class Product extends Auditable {
 
     @ManyToMany(mappedBy = "products")
     private List<Widget> widgets;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "productstatus", nullable = false)
+    private ProductStatus productstatus = ProductStatus.AVAILABLE;
 
     public void addWidget(Widget widget) {
         if (widgets == null)

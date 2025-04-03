@@ -12,38 +12,27 @@
         <div data-th-replace="~{fragment/common :: customerNav}"></div>
     </section>
 
-    <!-- Breadcrumb -->
-    <section class="breadcrumbs">
-        <div class="breadcrumb">
-            <a href="#">Home</a> > <a href="#">Solar Chargers</a> > Solar Charger 10,000mAh
-        </div>
-    </section>
 
     <!-- Product Section -->
     <section class="product-container">
         <div class="product-images">
-            <div class="image-thumbnails">
-                <img src="/images/chargers2.jpeg" onclick="changeImage(this)">
-                <img src="/images/chargers3.jpeg" onclick="changeImage(this)">
-                <img src="/images/chargers4.jpeg" onclick="changeImage(this)">
-            </div>
             <div class="mainimages">
-                <img id="mainImage" src="/images/chargers1.jpeg" alt="Solar Charger">
+                <img id="mainImage" data-th-src="|/admin/productimage/${product.productId}|" alt="Solar Charger">
             </div>
         </div>
 
         <div class="product-details">
             <h2 data-th-text="|${product.productTitle}|"></h2>
-            <p class="price"><del>&#8377;49.99</del> <span>&#8377;39.99</span></p>
+            <p class="price" data-th-text="|&#8377; ${product.productPrice}|"></p>
             <p>⭐⭐⭐⭐⭐ (120 Reviews)</p>
             <p><strong>Availability:</strong> ✅ In Stock</p>
 
             <p data-th-text="|${product.productDescription}|"></p>
             <ul class="features">
-                <li>🔋 100% Solar-Powered</li>
-                <li>⚡ 10,000mAh Battery – Charges Phone 3X</li>
-                <li>🌞 Dual USB Fast Charging</li>
-                <li>💦 Waterproof & Durable</li>
+                <li> 100% Solar-Powered</li>
+                <li> 10,000mAh Battery – Charges Phone 3X</li>
+                <li> Dual USB Fast Charging</li>
+                <li> Waterproof & Durable</li>
             </ul>
 
             <label>Quantity:</label>

@@ -15,6 +15,10 @@
   z-index: 1;
 }
 
+.product_section h2{
+  text-align: center;
+}
+
 .container {
   width: 100%;
   padding: 50px;
@@ -55,10 +59,35 @@ main {
   height: 200px; */
 }
 
+.product_description{
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.product-action {
+  border: 0.5px solid black;
+  padding: 5px;
+  max-width: 250px;
+  text-align: center;
+  border-radius: 20px;
+  margin-top: 0.8rem;
+}
+
+.product-action:hover{
+  background-color: #389c68;
+  color: white;
+  cursor: pointer;
+}
+
 .image {
   width: 50%;
   /* height: 50px; */
   display: block;
   aspect-ratio: 2 2;
   object-fit: contain;
+}
+
+.category_filter{
+  gap: 1rem;
+  
 }

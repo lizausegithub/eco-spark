@@ -13,7 +13,7 @@
         <h2>Best-Selling Eco-Friendly Products</h2>
         <div class="product-list">
             <div class="product" th:each="product : ${products}">
-                <img src="/images/chargers1.jpeg" alt="Solar Panel" height="250px" />
+                <img data-th-src="|/admin/productimage/${product.productId}|" alt="Solar Panel" height="250px" />
                 <h3 th:text="${product.productTitle}"></h3>
                 <a data-th-href="|/product/product/pdp?product=${product.productId}|">Shop Now</a>
             </div>
@@ -28,7 +28,7 @@
         </div>
         <div class="off-on-card">
             <div class="product-card" th:each="product : ${products}">
-                <img src="/images/electricscooty2.jpeg" alt="scooty 2" />
+                <img data-th-src="|/admin/productimage/${product.productId}|" alt="scooty 2" />
                 <h3 th:text="${product.productTitle}"></h3>
                 <p>4.0 ★★★★★ | 6 reviews</p>
                 <p>
@@ -45,7 +45,7 @@
         <h2>New Arrivals Products</h2>
         <div class="new-grid">
             <div class="new" th:each="product : ${products}">
-                <img src="/images/solar-water-heater1.jpg" alt="Product 1" />
+                <img data-th-src="|/admin/productimage/${product.productId}|" alt="Product 1" />
                 <h3 th:text="${product.productTitle}"></h3>
                 <p class="new-price" data-th-text="|&#8377;${product.productPrice}|"></p>
                 <button>Add to cart</button>

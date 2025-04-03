@@ -60,6 +60,7 @@ public class CartController {
         String username = principal.getName();
         User user = userService.getUser(username);
         Order order = orderRepository.findByUserUserIdAndOrderStatus(user.getUserId(), OrderStatus.CART).orElse(null);
+        System.out.println(order.getOrderId());
         order.removeOrderItem(orderItemId);
         orderRepository.save(order);
         return "redirect:/product/cart";
