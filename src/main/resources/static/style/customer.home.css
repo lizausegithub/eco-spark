@@ -96,28 +96,6 @@
   text-align: center;
 }
 
-/* .btn-primary {
-  background-color: white;
-  color: black;
-  width: 70%;
-  border-radius: 15px;
-}
-
-.btn-primary:hover {
-  background-color: #cceb1a;
-}
-
-.btn-secondary {
-  background-color: #ffffff;
-  color: black;
-  padding: 1rem;
-  width: 70%;
-  border-radius: 15px;
-}
-
-.btn-secondary:hover {
-  background-color: #cceb1a;
-} */
 
 .features {
   display: flex;
@@ -162,14 +140,13 @@
 .products {
   text-align: center;
   padding: 2rem;
-  margin-top: -30px;
+  margin-top: -10px;
   color: #27672a;
 }
 
 .product-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
   margin: 1rem;
 }
 
@@ -187,28 +164,28 @@
 }
 
 .product img:hover {
-  transform: scale(1.1);
+  cursor: pointer;
 }
 
-.product button {
-  font-size: 0.8rem;
-  background-color: #cceb1a;
-  width: 80%;
-  border-radius: 15px;
+.product a {
+ padding: 3px 80px;
+ border-radius: 20px;
+ background-color: #A9CD61;
+ color: rgb(0, 0, 0);
 }
 
-.product button:hover {
-  background-color: #388e3c;
+.product a:hover{
+  background-color: #27672a;
 }
 
 .banner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 50px;
   background: linear-gradient(to right, #388e3c, #78ccf5);
   color: #fff;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 15px;
 }
 
@@ -245,6 +222,7 @@
   font-size: 1em;
   cursor: pointer;
   transition: background 0.3s;
+  border-radius: 20px;
 }
 
 .product-card a:hover {
@@ -265,9 +243,8 @@
 }
 
 .product-card img {
-  max-width: 100%;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 230px;
   border-radius: 5px;
 }
 
@@ -328,11 +305,10 @@
   text-align: center;
   border-radius: 8px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  background-color: #b4fc9e;
 }
 
 .new img {
-  width: 260px;
+  width: 250px;
   height: 250px;
   margin-left: 0;
   margin-bottom: 10px;
@@ -341,6 +317,7 @@
 
 .new h3 {
   margin-bottom: 5px;
+  color: #27672a;
 }
 
 .new-price {
@@ -349,8 +326,9 @@
 }
 
 .new button {
-  background-color: #cceb1a;
+  background-color: #A9CD61;
   color: black;
+  font-weight: 50px;
   padding: 8px 16px;
   width: 70%;
   border: none;

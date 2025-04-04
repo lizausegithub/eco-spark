@@ -35,43 +35,38 @@
                 <li> Waterproof & Durable</li>
             </ul>
 
-            <label>Quantity:</label>
-            <input type="number" id="quantity" min="1" value="1">
+            <div class="quantity"><label>Quantity:</label>
+            <input type="number" id="quantity" min="1" value="1"></div>
 
             <div class="cta-buttons">
-                <button class="btn cart-btn">🛒 Add to Cart</button>
-                <!-- <button class="btn buy-btn">✅ Buy Now</button> -->
+                <a data-th-href="|/product/cart/add?productId=${product.productId}|" alt="img">Add to cart</a>
             </div>
         </div>
     </section>
 
     <!-- Related Products -->
     <section class="related-products">
-        <h3>People Also Bought:</h3>
+        <h2>People Also Bought:</h2>
         <div class="product-grid">
             <div class="product">
                 <img src="/images/solarbattery1.jpg" alt="Solar Flashlight">
-                <div>
-                    <p>Solar Flashlight - $19.99</p>
-                </div>
+                 <h4>Solar Battery</h4>
+                 <h4>&#8377; 399.00</h4>
             </div>
             <div class="product">
-                <img src="/images/solarbattery1.jpg" alt="LED Bulbs">
-                <div>
-                    <p>Solar Flashlight - $19.99</p>
-                </div>
+                <img src="/images/flashlights2.jpeg" alt="LED Bulbs">
+                    <h4>Solar Flashlight </h4>
+                    <h4>&#8377; 455.00</h4>
             </div>
             <div class="product">
-                <img src="/images/solarbattery1.jpg" alt="LED Bulbs">
-                <div>
-                    <p>Solar Flashlight - $19.99</p>
-                </div>
+                <img src="/images/smartplugs3.jpeg" alt="LED Bulbs">
+                    <h4>Smart Plugs </h4>   
+                    <h4>&#8377; 399.00</h4> 
             </div>
             <div class="product">
-                <img src="/images/solarbattery1.jpg" alt="LED Bulbs">
-                <div>
-                    <p>Solar Flashlight - $19.99</p>
-                </div>
+                <img src="/images/gardenlights4.jpeg" alt="LED Bulbs">
+                    <h4>Solar Gardenlights </h4>
+                    <h4>&#8377; 1289.90</h4>
             </div>
         </div>
     </section>

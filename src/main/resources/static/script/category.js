@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    loadCategories();
+    // loadCategories();
 });
 
 // function loadCategories() {
@@ -34,6 +34,8 @@ function searchCategory() {
     });
 }
 
+let editIndex = null;
+
 async function openModal(categoryId = null) {
     document.getElementById("categoryModal").style.display = "block";
     if (categoryId) {
@@ -52,7 +54,7 @@ function updateFields(category) {
     document.getElementById('categoryStatus').value = category.categoryStatus;
     document.getElementById('categoryId').value = category.categoryId;
     
-    document.getElementById('imageUrl').value = category?.categoryImageUrl;
+    document.getElementById('imageUrl').value = category.categoryImageUrl;
 }
 
 function closeModal() {

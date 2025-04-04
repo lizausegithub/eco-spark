@@ -28,7 +28,7 @@
                                 <div class="product" data-th-each="item : ${order.orderItems}">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img data-th-src="|/admin/productimage/${item.product.productId}|" height="200">
+                                            <img data-th-src="|/admin/productimage/${item.product.productId}|" height="130">
                                         </div>
                                         <div class="col-md-8">
                                             <div class="info">
@@ -36,6 +36,7 @@
                                                     <div class="col-md-5 product-name">
                                                         <div class="product-name">
                                                             <a href="#" data-th-text="${item.product.productTitle}"></a>
+                                                            <p data-th-text="${item.product.productDescription}"></p>
                                                             <div class="product-info">
                                                                 
                                                             </div>
@@ -71,9 +72,11 @@
                                         class="price">$0</span></div>
                                 <div class="summary-item"><span class="text">Shipping</span><span
                                         class="price">$0</span></div>
-                                <div class="summary-item"><span class="text">Total</span><span class="price">$360</span>
+                                <div class="summary-item"><span class="text">Total</span><span th:if="${order != null}" class="price" data-th-text="|${order.orderTotalPrice}|">$360</span>
                                 </div>
-                                <button type="button" class="btn btn-primary btn-lg btn-block">Check Out</button>
+                                <a href="/customer/placeorder" data-th-if="${order != null}" class="btn-checkout">
+                                    Place Order
+                                </a>    
                                 <div class="back-to-shop">
                                     <a href="/customer/home">&leftarrow;<span class="text-muted">Back to home</span></a>
                                 </div>
